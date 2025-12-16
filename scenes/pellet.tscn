@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://26b08e2owu7e"]
+
+[ext_resource type="Texture2D" uid="uid://3bjv0h02m5mn" path="res://sprites/pellets/pellet.png" id="1_euuo5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bonx2"]
+radius = 4.0
+
+[node name="Pellet" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_euuo5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bonx2")

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn6jmjwp7dmi0"]
+
+[ext_resource type="Script" uid="uid://cq8xbk8id6h6b" path="res://scripts/start.gd" id="1_bodal"]
+[ext_resource type="Texture2D" uid="uid://dr54etyllbj8n" path="res://sprites/start/Tela_Dela_de_Titulo-FINAL.png" id="1_u80x2"]
+[ext_resource type="Texture2D" uid="uid://dflov5lvjy7b" path="res://sprites/start/Pressione_Start.png" id="2_bodal"]
+[ext_resource type="AudioStream" uid="uid://brb7vw3bgn5cf" path="res://sounds/02. Start Music.mp3" id="4_kdmts"]
+[ext_resource type="AudioStream" uid="uid://m6oupdgwvo5s" path="res://sounds/04. PAC-MAN - Turning The Corner While Eating The Pac-dots.mp3" id="5_0auqf"]
+
+[node name="Start" type="Node2D"]
+script = ExtResource("1_bodal")
+metadata/_edit_vertical_guides_ = [799.0]
+metadata/_edit_horizontal_guides_ = [601.0]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(400, 301)
+texture = ExtResource("1_u80x2")
+
+[node name="Start" type="Sprite2D" parent="background"]
+position = Vector2(6, 89)
+texture = ExtResource("2_bodal")
+
+[node name="AudioStart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kdmts")
+
+[node name="BlinkTimer" type="Timer" parent="."]
+wait_time = 5.757000000000001
+
+[node name="AudioTransition" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_0auqf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TransitionRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+color = Color(0, 0, 0, 0)
+
+[connection signal="timeout" from="BlinkTimer" to="." method="_on_blink_timer_timeout"]
