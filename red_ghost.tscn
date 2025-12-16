@@ -135,9 +135,6 @@ libraries = {
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_ilpko")
 
-[node name="ScatterTimer" type="Timer" parent="."]
-wait_time = 8.0
-
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
@@ -147,4 +144,11 @@ shape = SubResource("RectangleShape2D_cr6oh")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 4.0
 target_desired_distance = 8.0
+path_postprocessing = 1
 max_speed = 80.0
+
+[node name="nav_timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]

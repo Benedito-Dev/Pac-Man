@@ -1,0 +1,48 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1765885933
+icon.svg::CompressedTexture2D::2442463909604863256::1765885856::1765885935::1::::<><><>0<>0<>b7e6bf9bfd646ae8d97b753f115f79fc<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+red_ghost.tscn::PackedScene::3513951037637654008::1765885856::0::1::::<><><>0<>0<><>::uid://ndsmaeksh23j::::res://scripts/red_ghost.gd<>uid://cu5s2rfx5yi0p::::res://sprites/ghosts/red/Vermelho.png
+::res://Map/::1765885856
+Fundo_Branco.png::CompressedTexture2D::1598439648757356507::1765885856::1765885936::1::::<><><>0<>0<>1c1b764bd9b909a71f3478ef7cec6b83<>res://.godot/imported/Fundo_Branco.png-8243e91bd8bbfc4bdfbc9dbf393d5ffa.ctex::
+Fundo_Preto.png::CompressedTexture2D::5429974527643248644::1765885856::1765885936::1::::<><><>0<>0<>d574e5c134271fc0e35b9b81b55c56c6<>res://.godot/imported/Fundo_Preto.png-5403cc45f7bc308dbb4b16421ab632bb.ctex::
+Mapa-Oficial-Play-Now-Full-Free.png::CompressedTexture2D::2662933637583596783::1765885856::1765885936::1::::<><><>0<>0<>8552de0cc51eeaefcb2ad119bbf4e80d<>res://.godot/imported/Mapa-Oficial-Play-Now-Full-Free.png-14519a2ef238a73aa7d87c0afda9fbe0.ctex::
+Painel-Oficial.png::CompressedTexture2D::6800475320066429518::1765885856::1765885936::1::::<><><>0<>0<>debad6ea6742d876a3f4bf9590ad4e60<>res://.godot/imported/Painel-Oficial.png-ca41a25cc253154ea135a0f36fab7bd5.ctex::
+::res://Map/Tiles/::1765885856
+Bolinhas.png::CompressedTexture2D::9009613955756154843::1765885856::1765885936::1::::<><><>0<>0<>068edb67ef7427c7362ac3dbd9f28ae7<>res://.godot/imported/Bolinhas.png-4f7a40d98ebb7e3cca120245a5c190aa.ctex::
+Tiles.png::CompressedTexture2D::6931613586204052803::1765885856::1765885936::1::::<><><>0<>0<>c44b30ef72db28eae42c463f0b25d743<>res://.godot/imported/Tiles.png-bb48fb1a0eb287d91b787bab51052a71.ctex::
+::res://scenes/::1765885856
+game.tscn::PackedScene::3896474082106774077::1765885856::0::1::::<><><>0<>0<><>::uid://c78ryn8u4y06p::::res://scripts/game.gd<>uid://cjmk5fsgs83bk::::res://Map/Fundo_Preto.png<>uid://bpdpahxjuojo3::::res://scenes/pacman.tscn<>uid://w1kckaib76vf::::res://Map/Fundo_Branco.png<>uid://dqgn25iltr7mi::::res://sounds/03. PAC-MAN - Eating The Pac-dots.mp3<>uid://c50ywsqiyi8s2::::res://Map/Tiles/Tiles.png<>uid://c35g3nhiufb2m::::res://Map/Painel-Oficial.png<>uid://bjlinpxbkix7y::::res://sprites/hud/Pontuacao.png<>uid://26b08e2owu7e::::res://scenes/pellet.tscn<>uid://cqqqh1yilmknk::::res://scenes/power.tscn<>uid://bqcgi31yifsh1::::res://red_ghost.tscn
+pacman.tscn::PackedScene::3446357630047422380::1765885856::0::1::::<><><>0<>0<><>::uid://ctdtsu7c1dlfk::::res://sprites/pacman/PAC-MAN.png<>uid://d20kqcei3nn6::::res://scripts/pacman.gd
+pellet.tscn::PackedScene::1959201591139242756::1765885856::0::1::::<><><>0<>0<><>::uid://3bjv0h02m5mn::::res://sprites/pellets/pellet.png
+power.tscn::PackedScene::5929878285162350844::1765885856::0::1::::<><><>0<>0<><>::uid://c3mml3fd1hbnu::::res://sprites/pellets/power.png
+start.tscn::PackedScene::5749860434938507729::1765885856::0::1::::<><><>0<>0<><>::uid://cq8xbk8id6h6b::::res://scripts/start.gd<>uid://dr54etyllbj8n::::res://sprites/start/Tela_Dela_de_Titulo-FINAL.png<>uid://dflov5lvjy7b::::res://sprites/start/Pressione_Start.png<>uid://brb7vw3bgn5cf::::res://sounds/02. Start Music.mp3<>uid://m6oupdgwvo5s::::res://sounds/04. PAC-MAN - Turning The Corner While Eating The Pac-dots.mp3
+::res://scripts/::1765885856
+game.gd::GDScript::7088084612348491489::1765885856::0::1::::<>Node2D<><>0<>0<><>::
+pacman.gd::GDScript::267841356688681197::1765885856::0::1::::<>CharacterBody2D<><>0<>0<><>::
+red_ghost.gd::GDScript::919762442611188677::1765885856::0::1::::<>CharacterBody2D<><>0<>0<><>::
+start.gd::GDScript::5965386184686993571::1765885856::0::1::::<>Node2D<><>0<>0<><>::
+::res://sounds/::1765885856
+01. Credit Sound.mp3::AudioStreamMP3::2001113111395225974::1765885856::1765885935::1::::<><><>0<>0<>e11bf47010359839f7b899a003963943<>res://.godot/imported/01. Credit Sound.mp3-4807ac66f609b6592c6646e6f179de22.mp3str::
+02. Start Music.mp3::AudioStreamMP3::3583677047556466985::1765885856::1765885935::1::::<><><>0<>0<>26237d362f480bbcc847eeae3a032489<>res://.godot/imported/02. Start Music.mp3-17dddfbc396707ce0f131c6b611f546b.mp3str::
+03. PAC-MAN - Eating The Pac-dots.mp3::AudioStreamMP3::8295508941738401464::1765885856::1765885935::1::::<><><>0<>0<>975def4d42a5fe6fbc08062d7df0e7f5<>res://.godot/imported/03. PAC-MAN - Eating The Pac-dots.mp3-cf265d07d5626d055b3dc2722a047f94.mp3str::
+04. PAC-MAN - Turning The Corner While Eating The Pac-dots.mp3::AudioStreamMP3::907148380596590030::1765885856::1765885935::1::::<><><>0<>0<>15dcc098844577eeec65b8b64ecf7f4e<>res://.godot/imported/04. PAC-MAN - Turning The Corner While Eating The Pac-dots.mp3-e26a6910df193d20124bed0a380e4f17.mp3str::
+05. Extend Sound.mp3::AudioStreamMP3::1725342400104463130::1765885856::1765885935::1::::<><><>0<>0<>5163f0f341e9c4ecf27797c85886bfde<>res://.godot/imported/05. Extend Sound.mp3-8e7c349c9aac3d88d07efdcd15db2080.mp3str::
+06. Ghost - Normal Move.mp3::AudioStreamMP3::4132183737353964063::1765885856::1765885935::1::::<><><>0<>0<>c5ae9c087f9eed59ba349f4acb84f727<>res://.godot/imported/06. Ghost - Normal Move.mp3-699e53413369199b3c39303e894d31ae.mp3str::
+07. Ghost - Spurt Move #1.mp3::AudioStreamMP3::7209645293133391766::1765885856::1765885935::1::::<><><>0<>0<>94541858b7c1397de84d8b947f54456a<>res://.godot/imported/07. Ghost - Spurt Move #1.mp3-1a962227c3a89bd625b1333d6c61ff17.mp3str::
+08. Ghost - Spurt Move #2.mp3::AudioStreamMP3::1196106405637952340::1765885856::1765885935::1::::<><><>0<>0<>99aebf7146302144a1e243d1b8450631<>res://.godot/imported/08. Ghost - Spurt Move #2.mp3-e4c5f9a1634e89e558bac901d2671964.mp3str::
+09. Ghost - Spurt Move #3.mp3::AudioStreamMP3::8879575897082848129::1765885856::1765885935::1::::<><><>0<>0<>fc32928852853a4e4280670193b730dd<>res://.godot/imported/09. Ghost - Spurt Move #3.mp3-53eec30a6f9310d7ce5cc50aef577caf.mp3str::
+10. Ghost - Spurt Move #4.mp3::AudioStreamMP3::6125221190859384568::1765885856::1765885935::1::::<><><>0<>0<>1771f49d9fad50d3a9cb497f141a9a2b<>res://.godot/imported/10. Ghost - Spurt Move #4.mp3-897664b05ad30d100b137c579949691c.mp3str::
+::res://sprites/::1765885856
+::res://sprites/ghosts/::1765885856
+::res://sprites/ghosts/red/::1765885856
+Vermelho.png::CompressedTexture2D::6239691596780904385::1765885856::1765885935::1::::<><><>0<>0<>8318bc7c205a5bd6da66cd5286e02b48<>res://.godot/imported/Vermelho.png-a5b313d6fb3cdf2b9c49f3c5372630f0.ctex::
+::res://sprites/hud/::1765885856
+Pontuacao.png::CompressedTexture2D::3041338206432840052::1765885856::1765885935::1::::<><><>0<>0<>bee51e22ff574368597406abb4f6b0b2<>res://.godot/imported/Pontuacao.png-b26582ceb165ed1cb590fc340effe50b.ctex::
+::res://sprites/pacman/::1765885856
+PAC-MAN.png::CompressedTexture2D::6113809396950338264::1765885856::1765885935::1::::<><><>0<>0<>29d502e374660950ab35bd0201441b46<>res://.godot/imported/PAC-MAN.png-608299081be1706f3782d21e3593d18b.ctex::
+::res://sprites/pellets/::1765885856
+pellet.png::CompressedTexture2D::1967937279295725453::1765885856::1765885935::1::::<><><>0<>0<>dd912553a91a197a8d3be0634a2f343f<>res://.godot/imported/pellet.png-e453c53de507f8c9b6925199b8a116fe.ctex::
+power.png::CompressedTexture2D::6763651248495131466::1765885856::1765885935::1::::<><><>0<>0<>ca6df55b9dab4707a0465186193226e8<>res://.godot/imported/power.png-06c583257d5e684dd837ee2ad154980a.ctex::
+::res://sprites/start/::1765885856
+Pressione_Start.png::CompressedTexture2D::221582457582216473::1765885856::1765885935::1::::<><><>0<>0<>42d4fd6ca7327420bbe80c5276f09f65<>res://.godot/imported/Pressione_Start.png-0693aa171e9a2cf5b7ad3fba9b94654c.ctex::
+Tela_Dela_de_Titulo-FINAL.png::CompressedTexture2D::8416172697046992939::1765885856::1765885935::1::::<><><>0<>0<>6146ce9bb596585f30298da855e2d31b<>res://.godot/imported/Tela_Dela_de_Titulo-FINAL.png-26c04bab0df524f534d34a6e4da53f63.ctex::
