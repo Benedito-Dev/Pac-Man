@@ -76,9 +76,6 @@ func Power():
 	BlinkBackground.timeout.connect(_on_blink_timeout)
 	BackgroundWhite.visible = true
 	BlinkBackground.start()
-	
-	if red_ghost:
-		red_ghost.trigger_run_away()
 
 func _on_blink_timeout():
 	# Alterna a visibilidade apenas se ainda estiver em power mode

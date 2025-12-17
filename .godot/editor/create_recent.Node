@@ -1,1 +1,7 @@
 Timer
+NavigationAgent2D
+CollisionShape2D
+Area2D
+AnimationPlayer
+Sprite2D
+CharacterBody2D

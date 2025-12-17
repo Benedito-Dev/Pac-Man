@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqcgi31yifsh1"]
+[gd_scene load_steps=8 format=3 uid="uid://b2fcdej5tkt0i"]
 
-[ext_resource type="Script" uid="uid://ndsmaeksh23j" path="res://scripts/red_ghost.gd" id="1_cr6oh"]
-[ext_resource type="Texture2D" uid="uid://cu5s2rfx5yi0p" path="res://sprites/ghosts/red/Vermelho.png" id="1_ph70a"]
+[ext_resource type="Script" uid="uid://dn6rdyvsp2dk1" path="res://scripts/ghosts/pink_ghost.gd" id="1_jft73"]
+[ext_resource type="Texture2D" uid="uid://bu5dpkp45t8ud" path="res://sprites/ghosts/pink/Rosa-MoveSet-1.png" id="1_ojktb"]
 
-[sub_resource type="Animation" id="Animation_cr6oh"]
+[sub_resource type="Animation" id="Animation_jft73"]
 resource_name = "Move-h"
-length = 0.4
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -17,7 +17,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_ph70a")]
+"values": [ExtResource("1_ojktb")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -50,13 +50,13 @@ tracks/3/path = NodePath("Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.16666667),
+"times": PackedFloat32Array(0, 0.20000002),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_54gug"]
+[sub_resource type="Animation" id="Animation_5pr1f"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -68,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_ph70a")]
+"values": [ExtResource("1_ojktb")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -107,45 +107,45 @@ tracks/3/keys = {
 "values": [0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_72or8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrmod"]
 _data = {
-&"Move-h": SubResource("Animation_cr6oh"),
-&"RESET": SubResource("Animation_54gug")
+&"Move-h": SubResource("Animation_jft73"),
+&"RESET": SubResource("Animation_5pr1f")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilpko"]
-size = Vector2(18, 17)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ojktb"]
+size = Vector2(17, 17)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cr6oh"]
-size = Vector2(18, 17)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jft73"]
+size = Vector2(17, 17)
 
-[node name="RedGhost" type="CharacterBody2D"]
-script = ExtResource("1_cr6oh")
+[node name="PinkGhost" type="CharacterBody2D"]
+script = ExtResource("1_jft73")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_ph70a")
+texture = ExtResource("1_ojktb")
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_72or8")
+&"": SubResource("AnimationLibrary_lrmod")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_ilpko")
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_ojktb")
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_cr6oh")
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_jft73")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 4.0
 target_desired_distance = 8.0
 path_postprocessing = 1
-max_speed = 80.0
+debug_enabled = true
 
 [node name="nav_timer" type="Timer" parent="."]
 wait_time = 0.1

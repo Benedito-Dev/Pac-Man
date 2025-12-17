@@ -1,3 +1,5 @@
+res://scripts/ghosts/orange_ghost.gd
+res://scenes/ghots/pink_ghost.tscn
 res://scenes/game.tscn
-res://scripts/red_ghost.gd
-res://red_ghost.tscn
+res://scenes/ghots/orange_ghost.tscn
+res://scripts/pacman.gd
