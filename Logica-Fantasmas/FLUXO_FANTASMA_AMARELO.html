@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lógica do Fantasma Amarelo - Fluxo Específico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #ffc107;
+            border-bottom: 3px solid #ffc107;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1976d2;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #388e3c;
+            margin-top: 25px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #fff8e1;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .map {
+            background-color: #263238;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>💛 LÓGICA DO FANTASMA AMARELO - FLUXO ESPECÍFICO</h1>
+
+<div class="highlight">
+<h2>🎯 <strong>PERSONALIDADE DO FANTASMA AMARELO</strong></h2>
+<p>O fantasma amarelo patrulha a <strong>região DIREITA SUPERIOR</strong> do mapa. Sua estratégia é controlar o canto superior direito, criando uma barreira junto com o fantasma vermelho.</p>
+</div>
+
+<hr>
+
+<h2>📍 <strong>PONTOS DE PATRULHA ESPECÍFICOS</strong></h2>
+
+<h3><strong>COORDENADAS EXATAS</strong></h3>
+<table>
+<tr>
+<th>Ponto</th>
+<th>Coordenada</th>
+<th>Localização no Mapa</th>
+<th>Estratégia</th>
+</tr>
+<tr>
+<td><strong>Yellow1</strong></td>
+<td>(181, -217)</td>
+<td>Direita-Superior</td>
+<td>Ponto de entrada na região</td>
+</tr>
+<tr>
+<td><strong>Yellow2</strong></td>
+<td>(181, -314)</td>
+<td>Direita-Superior Extremo</td>
+<td>Controla canto superior direito</td>
+</tr>
+<tr>
+<td><strong>Yellow3</strong></td>
+<td>(300, -313)</td>
+<td>Extrema Direita-Superior</td>
+<td>Bloqueia borda direita superior</td>
+</tr>
+<tr>
+<td><strong>Yellow4</strong></td>
+<td>(300, -217)</td>
+<td>Extrema Direita-Centro</td>
+<td>Controla extrema direita</td>
+</tr>
+</table>
+
+<h3><strong>PONTOS DA BASE</strong></h3>
+<table>
+<tr>
+<th>Ponto</th>
+<th>Coordenada</th>
+<th>Função</th>
+</tr>
+<tr>
+<td><strong>Home1</strong></td>
+<td>(0, 29)</td>
+<td>Posição central superior na base</td>
+</tr>
+<tr>
+<td><strong>Home2</strong></td>
+<td>(0, -31)</td>
+<td>Posição central inferior na base</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>🗺️ <strong>MAPA DE PATRULHA</strong></h2>
+
+<div class="map">
+<pre>
+                   REGIÃO DO FANTASMA AMARELO
+                      (DIREITA SUPERIOR)
+
+    ┌─────────────────────────────────────────────┐
+    │                                             │
+    │                                 Yellow2     │
+    │                                (181,-314)   │
+    │                                    ↓        │
+    │                                 Yellow3     │
+    │                                (300,-313)   │
+    │                                    ↓        │
+    │                                 Yellow4     │
+    │                                (300,-217)   │
+    │                                    ↓        │
+    │                                 Yellow1     │
+    │                                (181,-217)   │
+    │                                    ↑        │
+    └─────────────────────────────────────────────┘
+                                       ↑_______|
+                                       LOOP DE VOLTA
+</pre>
+</div>
+
+<hr>
+
+<h2>🎮 <strong>FLUXO ESPECÍFICO DO FANTASMA AMARELO</strong></h2>
+
+<h3><strong>FASE 1: PATRULHA (8 segundos)</strong></h3>
+<pre>
+💛 ESTADO: SCATTER
+↓
+📍 Vai para Yellow1 (181, -217) - Direita superior
+↓
+✅ Chegou? → Vai para Yellow2 (181, -314) - Direita superior extremo
+↓
+✅ Chegou? → Vai para Yellow3 (300, -313) - Extrema direita superior
+↓
+✅ Chegou? → Vai para Yellow4 (300, -217) - Extrema direita centro
+↓
+✅ Chegou? → Volta para Yellow1 (LOOP INFINITO)
+↓
+⏰ 8 segundos acabaram? → Vai para FASE 2
+</pre>
+
+<h3><strong>FASE 2: PERSEGUIÇÃO</strong></h3>
+<pre>
+🎯 ESTADO: CHASE
+↓
+📍 Mira diretamente no Pacman
+↓
+🏃 Vai direto atrás do Pacman (atualiza posição constantemente)
+↓
+❓ O que pode acontecer?
+   ├─ 💊 Pacman comeu power pellet? → Vai para FASE 3
+   ├─ 👻 Tocou no Pacman? → Pacman morre, volta FASE 1
+   └─ 🔄 Nada? → Continua perseguindo
+</pre>
+
+<h3><strong>FASE 3: FUGA</strong></h3>
+<pre>
+😱 ESTADO: RUN_AWAY
+↓
+🔵 Fica azul (cor branca) e sem olhos
+↓
+🎲 tile_map.get_random_empty_cell_position()
+↓
+🏃💨 Foge para posição aleatória no mapa
+↓
+⏰ Metade do tempo? → Começa a piscar (branco/azul)
+↓
+❓ O que pode acontecer?
+   ├─ 🍽️ Pacman me comeu? → Vai para FASE 4
+   ├─ ⏰ Tempo de fuga acabou? → Volta FASE 2
+   └─ 🔄 Nada? → Continua fugindo
+</pre>
+
+<h3><strong>FASE 4: MORTE</strong></h3>
+<pre>
+💀 ESTADO: EATEN
+↓
+👁️ Só sobram os olhos
+↓
+🏠 Vai direto para Home1 (0, 29)
+↓
+✅ Chegou em casa? → Volta FASE 2 (perseguição)
+</pre>
+
+<hr>
+
+<h2>🎯 <strong>ESTRATÉGIA TÁTICA DO FANTASMA AMARELO</strong></h2>
+
+<div class="highlight">
+<h3><strong>PAPEL NO JOGO</strong></h3>
+<ul>
+<li><strong>Controlador Superior Direito</strong> - Domina o canto superior direito</li>
+<li><strong>Bloqueador de Escape</strong> - Impede Pacman de fugir pela parte superior</li>
+<li><strong>Complemento do Vermelho</strong> - Trabalha junto com fantasma vermelho</li>
+<li><strong>Guardião da Fronteira</strong> - Protege a borda superior do mapa</li>
+</ul>
+</div>
+
+<h3><strong>EXEMPLO PRÁTICO - PRIMEIRO MINUTO</strong></h3>
+<pre>
+⏰ 0:00 - Jogo inicia
+💛 Fantasma Amarelo aparece na posição inicial
+📍 Vai para Yellow1 (181, -217)
+
+⏰ 0:02 - Chegou em Yellow1
+📍 Vai para Yellow2 (181, -314) - Direita superior extremo
+
+⏰ 0:04 - Chegou em Yellow2
+📍 Vai para Yellow3 (300, -313) - Extrema direita superior
+
+⏰ 0:06 - Chegou em Yellow3
+📍 Vai para Yellow4 (300, -217) - Extrema direita centro
+
+⏰ 0:08 - Timer de 8 segundos acabou!
+🎯 MUDA PARA PERSEGUIÇÃO
+📍 Vai direto atrás do Pacman
+
+⏰ 0:15 - Pacman comeu power pellet!
+😱 MUDA PARA FUGA
+🔵 Fica azul
+📍 Vai para posição aleatória (ex: -150, 100)
+
+⏰ 0:22 - Começa a piscar (metade do tempo)
+🔵⚪ Alterna entre azul e branco
+
+⏰ 0:30 - Tempo de fuga acabou
+🎯 MUDA PARA PERSEGUIÇÃO
+📍 Vai atrás do Pacman novamente
+</pre>
+
+<hr>
+
+<h2>🔧 <strong>CONFIGURAÇÕES TÉCNICAS</strong></h2>
+
+<table>
+<tr>
+<th>Propriedade</th>
+<th>Valor</th>
+<th>Função</th>
+</tr>
+<tr>
+<td>color</td>
+<td>Amarelo/Yellow</td>
+<td>Cor do corpo durante movimento normal</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>120</td>
+<td>Velocidade normal de movimento</td>
+</tr>
+<tr>
+<td>eaten_speed</td>
+<td>240</td>
+<td>Velocidade quando morto (só olhos)</td>
+</tr>
+<tr>
+<td>scatter_wait_time</td>
+<td>8</td>
+<td>Tempo de patrulha em segundos</td>
+</tr>
+<tr>
+<td>movement_targets</td>
+<td>yellow_movement_targets.tres</td>
+<td>Arquivo com pontos específicos</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>🤝 <strong>COORDENAÇÃO COM OUTROS FANTASMAS</strong></h2>
+
+<h3><strong>ESTRATÉGIA COMBINADA</strong></h3>
+<pre>
+🔴 Fantasma Vermelho (Superior Esquerdo)  ←→  💛 Fantasma Amarelo (Superior Direito)
+                                ↕                              ↕
+💙 Fantasma Azul (Inferior Esquerdo)      ←→  🌸 Fantasma Rosa (Inferior Direito)
+
+🎯 RESULTADO: Controle total das 4 regiões do mapa!
+</pre>
+
+<div class="highlight">
+<h3><strong>PAPEL NA EQUIPE</strong></h3>
+<ul>
+<li><strong>Parceiro do Vermelho</strong> - Juntos controlam toda a parte superior</li>
+<li><strong>Opõe-se ao Azul</strong> - Cria pressão diagonal no mapa</li>
+<li><strong>Colabora com Rosa</strong> - Juntos dominam o lado direito</li>
+<li><strong>Posição Central</strong> - Sua base fica no centro, permitindo resposta rápida</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>🏠 <strong>VANTAGEM ESTRATÉGICA DA BASE</strong></h2>
+
+<div class="highlight">
+<h3><strong>BASE CENTRAL</strong></h3>
+<p>O fantasma amarelo tem uma vantagem única: sua base fica no <strong>centro</strong> (0, 29) e (0, -31). Isso significa:</p>
+<ul>
+<li><strong>Resposta Rápida</strong> - Pode chegar a qualquer região rapidamente</li>
+<li><strong>Flexibilidade</strong> - Não fica "preso" em um canto como outros</li>
+<li><strong>Apoio Tático</strong> - Pode ajudar qualquer outro fantasma</li>
+<li><strong>Controle Central</strong> - Domina o centro do mapa quando volta</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>🧠 <strong>RESUMO MENTAL - FANTASMA AMARELO</strong></h2>
+
+<div class="highlight">
+<p><strong>Lembre-se:</strong></p>
+<ol>
+<li><strong>Região</strong>: Canto superior direito do mapa</li>
+<li><strong>Patrulha</strong>: 4 pontos em formato retangular</li>
+<li><strong>Estratégia</strong>: Bloquear escape pela parte superior</li>
+<li><strong>Vantagem</strong>: Base central permite flexibilidade</li>
+<li><strong>Mesma lógica</strong>: Estados idênticos aos outros fantasmas</li>
+<li><strong>Diferença</strong>: Pontos de patrulha e posição da base</li>
+</ol>
+
+<p><strong>Sequência de patrulha:</strong><br>
+Yellow1 → Yellow2 → Yellow3 → Yellow4 → Yellow1 (LOOP)</p>
+
+<p><strong>Posição estratégica:</strong><br>
+Controla o canto superior direito, mas com base central que permite apoio rápido a qualquer região do mapa.</p>
+</div>
+
+</body>
+</html>

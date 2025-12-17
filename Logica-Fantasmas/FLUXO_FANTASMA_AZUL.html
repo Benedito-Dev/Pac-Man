@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lógica do Fantasma Azul - Fluxo Específico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #2196f3;
+            border-bottom: 3px solid #2196f3;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1976d2;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #388e3c;
+            margin-top: 25px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-left: 4px solid #2196f3;
+            margin: 20px 0;
+        }
+        .map {
+            background-color: #263238;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>💙 LÓGICA DO FANTASMA AZUL - FLUXO ESPECÍFICO</h1>
+
+<div class="highlight">
+<h2>🎯 <strong>PERSONALIDADE DO FANTASMA AZUL</strong></h2>
+<p>O fantasma azul patrulha a <strong>região ESQUERDA INFERIOR</strong> do mapa. Sua estratégia é controlar o lado esquerdo inferior, criando uma "armadilha" junto com outros fantasmas.</p>
+</div>
+
+<hr>
+
+<h2>📍 <strong>PONTOS DE PATRULHA ESPECÍFICOS</strong></h2>
+
+<h3><strong>COORDENADAS EXATAS</strong></h3>
+<table>
+<tr>
+<th>Ponto</th>
+<th>Coordenada</th>
+<th>Localização no Mapa</th>
+<th>Estratégia</th>
+</tr>
+<tr>
+<td><strong>Blue1</strong></td>
+<td>(-180, 143)</td>
+<td>Esquerda-Centro</td>
+<td>Ponto de entrada na região</td>
+</tr>
+<tr>
+<td><strong>Blue2</strong></td>
+<td>(-182, 285)</td>
+<td>Esquerda-Inferior</td>
+<td>Controla parte inferior esquerda</td>
+</tr>
+<tr>
+<td><strong>Blue3</strong></td>
+<td>(-252, 240)</td>
+<td>Extrema Esquerda-Meio</td>
+<td>Bloqueia borda esquerda</td>
+</tr>
+<tr>
+<td><strong>Blue4</strong></td>
+<td>(-299, 142)</td>
+<td>Extrema Esquerda-Centro</td>
+<td>Controla extrema esquerda</td>
+</tr>
+</table>
+
+<h3><strong>PONTOS DA BASE</strong></h3>
+<table>
+<tr>
+<th>Ponto</th>
+<th>Coordenada</th>
+<th>Função</th>
+</tr>
+<tr>
+<td><strong>Home1</strong></td>
+<td>(-43, 25)</td>
+<td>Posição superior na base</td>
+</tr>
+<tr>
+<td><strong>Home2</strong></td>
+<td>(18, -30)</td>
+<td>Posição inferior na base</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>🗺️ <strong>MAPA DE PATRULHA</strong></h2>
+
+<div class="map">
+<pre>
+                    REGIÃO DO FANTASMA AZUL
+                          (ESQUERDA)
+
+    ┌─────────────────────────────────────────────┐
+    │                                             │
+    │     Blue4                                   │
+    │   (-299,142)                                │
+    │       ↓                                     │
+    │     Blue1                                   │
+    │   (-180,143)                                │
+    │       ↓                                     │
+    │     Blue3                                   │
+    │   (-252,240)                                │
+    │       ↓                                     │
+    │     Blue2                                   │
+    │   (-182,285)                                │
+    │       ↑                                     │
+    └─────────────────────────────────────────────┘
+            ↑_______________|
+            LOOP DE VOLTA
+</pre>
+</div>
+
+<hr>
+
+<h2>🎮 <strong>FLUXO ESPECÍFICO DO FANTASMA AZUL</strong></h2>
+
+<h3><strong>FASE 1: PATRULHA (8 segundos)</strong></h3>
+<pre>
+💙 ESTADO: SCATTER
+↓
+📍 Vai para Blue1 (-180, 143) - Esquerda centro
+↓
+✅ Chegou? → Vai para Blue2 (-182, 285) - Esquerda inferior
+↓
+✅ Chegou? → Vai para Blue3 (-252, 240) - Extrema esquerda meio
+↓
+✅ Chegou? → Vai para Blue4 (-299, 142) - Extrema esquerda centro
+↓
+✅ Chegou? → Volta para Blue1 (LOOP INFINITO)
+↓
+⏰ 8 segundos acabaram? → Vai para FASE 2
+</pre>
+
+<h3><strong>FASE 2: PERSEGUIÇÃO</strong></h3>
+<pre>
+🎯 ESTADO: CHASE
+↓
+📍 Mira diretamente no Pacman
+↓
+🏃 Vai direto atrás do Pacman (atualiza posição constantemente)
+↓
+❓ O que pode acontecer?
+   ├─ 💊 Pacman comeu power pellet? → Vai para FASE 3
+   ├─ 👻 Tocou no Pacman? → Pacman morre, volta FASE 1
+   └─ 🔄 Nada? → Continua perseguindo
+</pre>
+
+<h3><strong>FASE 3: FUGA</strong></h3>
+<pre>
+😱 ESTADO: RUN_AWAY
+↓
+🔵 Fica azul (cor branca) e sem olhos
+↓
+🎲 tile_map.get_random_empty_cell_position()
+↓
+🏃💨 Foge para posição aleatória no mapa
+↓
+⏰ Metade do tempo? → Começa a piscar (branco/azul)
+↓
+❓ O que pode acontecer?
+   ├─ 🍽️ Pacman me comeu? → Vai para FASE 4
+   ├─ ⏰ Tempo de fuga acabou? → Volta FASE 2
+   └─ 🔄 Nada? → Continua fugindo
+</pre>
+
+<h3><strong>FASE 4: MORTE</strong></h3>
+<pre>
+💀 ESTADO: EATEN
+↓
+👁️ Só sobram os olhos
+↓
+🏠 Vai direto para Home1 (-43, 25)
+↓
+✅ Chegou em casa? → Volta FASE 2 (perseguição)
+</pre>
+
+<hr>
+
+<h2>🎯 <strong>ESTRATÉGIA TÁTICA DO FANTASMA AZUL</strong></h2>
+
+<div class="highlight">
+<h3><strong>PAPEL NO JOGO</strong></h3>
+<ul>
+<li><strong>Controlador da Esquerda</strong> - Domina todo o lado esquerdo inferior</li>
+<li><strong>Bloqueador de Escape</strong> - Impede Pacman de fugir pela esquerda</li>
+<li><strong>Criador de Armadilhas</strong> - Trabalha com fantasma rosa para cercar</li>
+<li><strong>Guardião da Região</strong> - Protege área estratégica do mapa</li>
+</ul>
+</div>
+
+<h3><strong>EXEMPLO PRÁTICO - PRIMEIRO MINUTO</strong></h3>
+<pre>
+⏰ 0:00 - Jogo inicia
+💙 Fantasma Azul aparece na posição inicial
+📍 Vai para Blue1 (-180, 143)
+
+⏰ 0:02 - Chegou em Blue1
+📍 Vai para Blue2 (-182, 285) - Esquerda inferior
+
+⏰ 0:04 - Chegou em Blue2
+📍 Vai para Blue3 (-252, 240) - Extrema esquerda meio
+
+⏰ 0:06 - Chegou em Blue3
+📍 Vai para Blue4 (-299, 142) - Extrema esquerda centro
+
+⏰ 0:08 - Timer de 8 segundos acabou!
+🎯 MUDA PARA PERSEGUIÇÃO
+📍 Vai direto atrás do Pacman
+
+⏰ 0:15 - Pacman comeu power pellet!
+😱 MUDA PARA FUGA
+🔵 Fica azul
+📍 Vai para posição aleatória (ex: 100, -50)
+
+⏰ 0:22 - Começa a piscar (metade do tempo)
+🔵⚪ Alterna entre azul e branco
+
+⏰ 0:30 - Tempo de fuga acabou
+🎯 MUDA PARA PERSEGUIÇÃO
+📍 Vai atrás do Pacman novamente
+</pre>
+
+<hr>
+
+<h2>🔧 <strong>CONFIGURAÇÕES TÉCNICAS</strong></h2>
+
+<table>
+<tr>
+<th>Propriedade</th>
+<th>Valor</th>
+<th>Função</th>
+</tr>
+<tr>
+<td>color</td>
+<td>Azul/Blue</td>
+<td>Cor do corpo durante movimento normal</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>120</td>
+<td>Velocidade normal de movimento</td>
+</tr>
+<tr>
+<td>eaten_speed</td>
+<td>240</td>
+<td>Velocidade quando morto (só olhos)</td>
+</tr>
+<tr>
+<td>scatter_wait_time</td>
+<td>8</td>
+<td>Tempo de patrulha em segundos</td>
+</tr>
+<tr>
+<td>movement_targets</td>
+<td>blue_movement_targets.tres</td>
+<td>Arquivo com pontos específicos</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>🤝 <strong>COORDENAÇÃO COM OUTROS FANTASMAS</strong></h2>
+
+<h3><strong>ESTRATÉGIA COMBINADA</strong></h3>
+<pre>
+🔴 Fantasma Vermelho (Superior Esquerdo)
+     ↓
+💙 Fantasma Azul (Inferior Esquerdo)
+     ↓
+🟡 Fantasma Amarelo (Superior Direito)
+     ↓
+🌸 Fantasma Rosa (Inferior Direito)
+     ↓
+🎯 RESULTADO: Pacman cercado por todos os lados!
+</pre>
+
+<div class="highlight">
+<h3><strong>PAPEL NA EQUIPE</strong></h3>
+<ul>
+<li><strong>Complementa o Vermelho</strong> - Enquanto vermelho controla superior esquerdo, azul controla inferior esquerdo</li>
+<li><strong>Opõe-se ao Rosa</strong> - Cria pressão do lado oposto ao fantasma rosa</li>
+<li><strong>Colabora com Amarelo</strong> - Juntos criam movimento de "pinça" no mapa</li>
+</ul>
+</div>
+
+<hr>
+
+<h2>🧠 <strong>RESUMO MENTAL - FANTASMA AZUL</strong></h2>
+
+<div class="highlight">
+<p><strong>Lembre-se:</strong></p>
+<ol>
+<li><strong>Região</strong>: Lado esquerdo inferior do mapa</li>
+<li><strong>Patrulha</strong>: 4 pontos em formato irregular na esquerda</li>
+<li><strong>Estratégia</strong>: Bloquear escape pela esquerda inferior</li>
+<li><strong>Cooperação</strong>: Trabalha com outros para cercar Pacman</li>
+<li><strong>Mesma lógica</strong>: Estados idênticos aos outros fantasmas</li>
+<li><strong>Diferença</strong>: Apenas os pontos de patrulha</li>
+</ol>
+
+<p><strong>Sequência de patrulha:</strong><br>
+Blue1 → Blue2 → Blue3 → Blue4 → Blue1 (LOOP)</p>
+
+<p><strong>Posição estratégica:</strong><br>
+Controla a região esquerda inferior, criando uma "rede" junto com outros fantasmas para capturar o Pacman.</p>
+</div>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1765995933
+::res://::1766010297
 icon.svg::CompressedTexture2D::2442463909604863256::1765885856::1765885935::1::::<><><>0<>0<>b7e6bf9bfd646ae8d97b753f115f79fc<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://Map/::1765885936
 Fundo_Branco.png::CompressedTexture2D::1598439648757356507::1765885856::1765885936::1::::<><><>0<>0<>1c1b764bd9b909a71f3478ef7cec6b83<>res://.godot/imported/Fundo_Branco.png-8243e91bd8bbfc4bdfbc9dbf393d5ffa.ctex::
@@ -9,22 +9,24 @@ Painel-Oficial.png::CompressedTexture2D::6800475320066429518::1765885856::176588
 ::res://Map/Tiles/::1765885936
 Bolinhas.png::CompressedTexture2D::9009613955756154843::1765885856::1765885936::1::::<><><>0<>0<>068edb67ef7427c7362ac3dbd9f28ae7<>res://.godot/imported/Bolinhas.png-4f7a40d98ebb7e3cca120245a5c190aa.ctex::
 Tiles.png::CompressedTexture2D::6931613586204052803::1765885856::1765885936::1::::<><><>0<>0<>c44b30ef72db28eae42c463f0b25d743<>res://.godot/imported/Tiles.png-bb48fb1a0eb287d91b787bab51052a71.ctex::
-::res://scenes/::1765983093
-game.tscn::PackedScene::3896474082106774077::1765983093::0::1::::<><><>0<>0<><>::uid://c78ryn8u4y06p::::res://scripts/game.gd<>uid://cjmk5fsgs83bk::::res://Map/Fundo_Preto.png<>uid://bpdpahxjuojo3::::res://scenes/pacman.tscn<>uid://w1kckaib76vf::::res://Map/Fundo_Branco.png<>uid://dqgn25iltr7mi::::res://sounds/03. PAC-MAN - Eating The Pac-dots.mp3<>uid://c50ywsqiyi8s2::::res://Map/Tiles/Tiles.png<>uid://c35g3nhiufb2m::::res://Map/Painel-Oficial.png<>uid://bjlinpxbkix7y::::res://sprites/hud/Pontuacao.png<>uid://26b08e2owu7e::::res://scenes/pellet.tscn<>uid://cqqqh1yilmknk::::res://scenes/power.tscn<>uid://bqcgi31yifsh1::::res://scenes/ghots/red_ghost.tscn<>uid://yxdjamk2ojlm::::res://scenes/ghots/blue_ghost.tscn<>uid://b2fcdej5tkt0i::::res://scenes/ghots/pink_ghost.tscn
+::res://scenes/::1765996313
+game.tscn::PackedScene::3896474082106774077::1765996313::0::1::::<><><>0<>0<><>::uid://c78ryn8u4y06p::::res://scripts/game.gd<>uid://cjmk5fsgs83bk::::res://Map/Fundo_Preto.png<>uid://bpdpahxjuojo3::::res://scenes/pacman.tscn<>uid://w1kckaib76vf::::res://Map/Fundo_Branco.png<>uid://dqgn25iltr7mi::::res://sounds/03. PAC-MAN - Eating The Pac-dots.mp3<>uid://c50ywsqiyi8s2::::res://Map/Tiles/Tiles.png<>uid://c35g3nhiufb2m::::res://Map/Painel-Oficial.png<>uid://bjlinpxbkix7y::::res://sprites/hud/Pontuacao.png<>uid://26b08e2owu7e::::res://scenes/pellet.tscn<>uid://cqqqh1yilmknk::::res://scenes/power.tscn<>uid://bqcgi31yifsh1::::res://scenes/ghots/red_ghost.tscn<>uid://yxdjamk2ojlm::::res://scenes/ghots/blue_ghost.tscn<>uid://b2fcdej5tkt0i::::res://scenes/ghots/pink_ghost.tscn<>uid://cp2y5top1acj4::::res://scenes/ghots/orange_ghost.tscn
 pacman.tscn::PackedScene::3446357630047422380::1765885856::0::1::::<><><>0<>0<><>::uid://ctdtsu7c1dlfk::::res://sprites/pacman/PAC-MAN.png<>uid://d20kqcei3nn6::::res://scripts/pacman.gd
 pellet.tscn::PackedScene::1959201591139242756::1765885856::0::1::::<><><>0<>0<><>::uid://3bjv0h02m5mn::::res://sprites/pellets/pellet.png
 power.tscn::PackedScene::5929878285162350844::1765885856::0::1::::<><><>0<>0<><>::uid://c3mml3fd1hbnu::::res://sprites/pellets/power.png
 start.tscn::PackedScene::5749860434938507729::1765885856::0::1::::<><><>0<>0<><>::uid://cq8xbk8id6h6b::::res://scripts/start.gd<>uid://dr54etyllbj8n::::res://sprites/start/Tela_Dela_de_Titulo-FINAL.png<>uid://dflov5lvjy7b::::res://sprites/start/Pressione_Start.png<>uid://brb7vw3bgn5cf::::res://sounds/02. Start Music.mp3<>uid://m6oupdgwvo5s::::res://sounds/04. PAC-MAN - Turning The Corner While Eating The Pac-dots.mp3
-::res://scenes/ghots/::1765981334
+::res://scenes/ghots/::1765996241
 blue_ghost.tscn::PackedScene::1732211177808244870::1765939835::0::1::::<><><>0<>0<><>::uid://co720jgp0fn23::::res://sprites/ghosts/blue/Azul-MoveSet-1.png<>uid://bw2hlbedrn4pm::::res://scripts/ghosts/blue_ghost.gd
-pink_ghost.tscn::PackedScene::4291968367443031206::1765981334::0::1::::<><><>0<>0<><>::uid://dn6rdyvsp2dk1::::res://scripts/ghosts/pink_ghost.gd<>uid://bu5dpkp45t8ud::::res://sprites/ghosts/pink/Rosa-MoveSet-1.png
+orange_ghost.tscn::PackedScene::5882924023247037143::1765996241::0::1::::<><><>0<>0<><>::uid://iwqaxp2v1aas::::res://scripts/ghosts/orange_ghost.gd<>uid://dl7uwst2brpcu::::res://sprites/ghosts/orange/Laranja-MoveSet-1.png
+pink_ghost.tscn::PackedScene::4291968367443031206::1765996183::0::1::::<><><>0<>0<><>::uid://dn6rdyvsp2dk1::::res://scripts/ghosts/pink_ghost.gd<>uid://bu5dpkp45t8ud::::res://sprites/ghosts/pink/Rosa-MoveSet-1.png
 red_ghost.tscn::PackedScene::3513951037637654008::1765941650::0::1::::<><><>0<>0<><>::uid://ndsmaeksh23j::::res://scripts/ghosts/red_ghost.gd<>uid://cu5s2rfx5yi0p::::res://sprites/ghosts/red/Vermelho.png<>uid://dac8y8p42jgvk::::res://sprites/ghosts/red/Vermelho-MoveSet-Piscando.png
-::res://scripts/::1765983093
+::res://scripts/::1765996271
 game.gd::GDScript::7088084612348491489::1765885856::0::1::::<>Node2D<><>0<>0<><>::
-pacman.gd::GDScript::267841356688681197::1765983093::0::1::::<>CharacterBody2D<><>0<>0<><>::
+pacman.gd::GDScript::267841356688681197::1765996271::0::1::::<>CharacterBody2D<><>0<>0<><>::
 start.gd::GDScript::5965386184686993571::1765885856::0::1::::<>Node2D<><>0<>0<><>::
-::res://scripts/ghosts/::1765981450
+::res://scripts/ghosts/::1765996170
 blue_ghost.gd::GDScript::3986758164633883350::1765981191::0::1::::<>CharacterBody2D<><>0<>0<><>::
+orange_ghost.gd::GDScript::607899764042798546::1765996170::0::1::::<>CharacterBody2D<><>0<>0<><>::
 pink_ghost.gd::GDScript::8136751568848565698::1765981332::0::1::::<>CharacterBody2D<><>0<>0<><>::
 red_ghost.gd::GDScript::919762442611188677::1765981450::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://sounds/::1765885935

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lógica Geral dos Fantasmas - Sistema Completo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #6a1b9a;
+            border-bottom: 3px solid #6a1b9a;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1976d2;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #388e3c;
+            margin-top: 25px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 20px 0;
+        }
+        .code-block {
+            background-color: #263238;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h1>👻 LÓGICA GERAL DOS FANTASMAS - SISTEMA COMPLETO</h1>
+
+<div class="highlight">
+<h2>🎯 <strong>CONCEITO FUNDAMENTAL</strong></h2>
+<p>Todos os fantasmas compartilham a <strong>mesma máquina de estados</strong> com 5 estados possíveis. A diferença entre eles está apenas nos <strong>pontos de patrulha</strong> e <strong>posições iniciais</strong>.</p>
+</div>
+
+<hr>
+
+<h2>🔧 <strong>ARQUITETURA DO SISTEMA</strong></h2>
+
+<h3><strong>COMPONENTES PRINCIPAIS</strong></h3>
+<pre>
+👻 Ghost (Area2D)
+├── 🧭 NavigationAgent2D - Sistema de navegação
+├── 👁️ EyesSprite - Olhos que mudam direção
+├── 🎨 BodySprite - Corpo com cores e animações
+├── ⏰ ScatterTimer - Timer para patrulha (8s)
+├── ⏰ AtHomeTimer - Timer para ficar em casa
+├── ⏰ UpdateChasingTargetPositionTimer - Atualiza posição do Pacman
+├── ⏰ RunAwayTimer - Timer para fuga
+└── 🏷️ PointsLabel - Mostra pontos quando comido
+</pre>
+
+<h3><strong>RECURSOS EXTERNOS</strong></h3>
+<pre>
+📍 MovementTargets (Resource)
+├── scatter_targets[4] - 4 pontos de patrulha únicos por fantasma
+└── at_home_targets[2] - 2 pontos na base (movimento vertical)
+
+🎯 Referências
+├── chasing_target: Node2D - Referência ao Pacman
+├── tile_map: MazeTileMap - Mapa para navegação
+├── points_manager: PointsManager - Sistema de pontuação
+└── starting_position: Node2D - Posição inicial
+</pre>
+
+<hr>
+
+<h2>🎮 <strong>MÁQUINA DE ESTADOS COMPLETA</strong></h2>
+
+<table>
+<tr>
+<th>Estado</th>
+<th>Comportamento</th>
+<th>Duração</th>
+<th>Condições de Saída</th>
+<th>Próximo Estado</th>
+</tr>
+<tr>
+<td><strong>STARTING_AT_HOME</strong></td>
+<td>Fica na base se movendo verticalmente</td>
+<td>Timer variável</td>
+<td>Timer expira</td>
+<td>SCATTER</td>
+</tr>
+<tr>
+<td><strong>SCATTER</strong></td>
+<td>Patrulha entre 4 pontos específicos</td>
+<td>8 segundos</td>
+<td>Timer expira</td>
+<td>CHASE</td>
+</tr>
+<tr>
+<td><strong>CHASE</strong></td>
+<td>Persegue Pacman diretamente</td>
+<td>Indefinido</td>
+<td>Power pellet comido / Colisão</td>
+<td>RUN_AWAY / Pacman morre</td>
+</tr>
+<tr>
+<td><strong>RUN_AWAY</strong></td>
+<td>Foge para posição aleatória</td>
+<td>Timer variável</td>
+<td>Timer expira / Comido</td>
+<td>CHASE / EATEN</td>
+</tr>
+<tr>
+<td><strong>EATEN</strong></td>
+<td>Volta para casa (só olhos)</td>
+<td>Até chegar</td>
+<td>Chegou em casa</td>
+<td>CHASE</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>⚙️ <strong>FLUXO DETALHADO DE FUNCIONAMENTO</strong></h2>
+
+<h3><strong>1. INICIALIZAÇÃO</strong></h3>
+<pre>
+🎮 Jogo inicia
+↓
+👻 Ghost._ready() é chamado
+↓
+🔧 setup() é chamado via call_deferred
+↓
+📍 position = starting_position.position
+↓
+🧭 NavigationAgent2D é configurado com o mapa
+↓
+❓ is_starting_at_home?
+   ├─ ✅ SIM → start_at_home()
+   └─ ❌ NÃO → scatter()
+</pre>
+
+<h3><strong>2. MOVIMENTO CONTÍNUO</strong></h3>
+<pre>
+🔄 _process(delta) - Executado todo frame
+↓
+🔍 Verifica se está piscando (metade do tempo de fuga)
+↓
+🚶 move_ghost(navigation_agent_2d.get_next_path_position(), delta)
+↓
+📐 calculate_direction(new_velocity) - Calcula direção do movimento
+↓
+👁️ direction_change.emit(direction) - Atualiza olhos
+↓
+📍 position += new_velocity - Move o fantasma
+</pre>
+
+<h3><strong>3. SISTEMA DE NAVEGAÇÃO</strong></h3>
+<pre>
+🎯 navigation_agent_2d.target_position = destino
+↓
+🧭 NavigationAgent2D calcula caminho automaticamente
+↓
+📍 get_next_path_position() retorna próximo ponto
+↓
+🚶 Fantasma se move em direção ao ponto
+↓
+✅ target_reached signal é emitido quando chega
+↓
+⚡ on_position_reached() é chamado
+</pre>
+
+<hr>
+
+<h2>🎯 <strong>LÓGICA DE CADA ESTADO</strong></h2>
+
+<h3><strong>STARTING_AT_HOME</strong></h3>
+<div class="code-block">
+func start_at_home():
+    current_state = GhostState.STARTING_AT_HOME
+    at_home_timer.start()
+    navigation_agent_2d.target_position = movement_targets.at_home_targets[current_at_home_index].position
+
+func move_to_next_home_position():
+    current_at_home_index = 1 if current_at_home_index == 0 else 0 
+    navigation_agent_2d.target_position = movement_targets.at_home_targets[current_at_home_index].position
+</div>
+
+<h3><strong>SCATTER</strong></h3>
+<div class="code-block">
+func scatter():
+    scatter_timer.start()  # 8 segundos
+    current_state = GhostState.SCATTER
+    navigation_agent_2d.target_position = movement_targets.scatter_targets[current_scatter_index].position
+
+func scatter_position_reached():
+    if current_scatter_index < 3:
+        current_scatter_index += 1
+    else:
+        current_scatter_index = 0
+    navigation_agent_2d.target_position = movement_targets.scatter_targets[current_scatter_index].position
+</div>
+
+<h3><strong>CHASE</strong></h3>
+<div class="code-block">
+func start_chasing_pacman():
+    current_state = GhostState.CHASE
+    update_chasing_target_position_timer.start()
+    navigation_agent_2d.target_position = chasing_target.position
+
+func _on_update_chasing_target_position_timer_timeout():
+    navigation_agent_2d.target_position = chasing_target.position  # Atualiza constantemente
+</div>
+
+<h3><strong>RUN_AWAY</strong></h3>
+<div class="code-block">
+func run_away_from_pacman():
+    if run_away_timer.is_stopped():
+        body_sprite.run_away()  # Fica azul
+        eyes_sprite.hide_eyes()
+        run_away_timer.start()
+    
+    current_state = GhostState.RUN_AWAY
+    update_chasing_target_position_timer.stop()
+    scatter_timer.stop()
+    
+    var empty_cell_position = tile_map.get_random_empty_cell_position()
+    navigation_agent_2d.target_position = empty_cell_position
+</div>
+
+<h3><strong>EATEN</strong></h3>
+<div class="code-block">
+func get_eaten():
+    ghost_eaten_sound_player.play()
+    body_sprite.hide()  # Só olhos
+    eyes_sprite.show_eyes()
+    points_label.show()
+    await points_manager.pause_on_ghost_eaten()
+    points_label.hide()
+    run_away_timer.stop()
+    current_state = GhostState.EATEN
+    navigation_agent_2d.target_position = movement_targets.at_home_targets[0].position
+</div>
+
+<hr>
+
+<h2>🎨 <strong>SISTEMA VISUAL</strong></h2>
+
+<h3><strong>BODY SPRITE</strong></h3>
+<pre>
+🎨 BodySprite gerencia aparência do corpo:
+├── move() - Cor normal + animação "moving"
+├── run_away() - Cor branca + animação "running_away"
+├── start_blinking() - Animação "blinking" (fim da fuga)
+└── hide() - Esconde corpo (quando comido)
+</pre>
+
+<h3><strong>EYES SPRITE</strong></h3>
+<pre>
+👁️ EyesSprite gerencia direção dos olhos:
+├── on_direction_change() - Muda textura baseado na direção
+├── hide_eyes() - Esconde olhos (durante fuga)
+└── show_eyes() - Mostra olhos (normal/comido)
+</pre>
+
+<hr>
+
+<h2>🔄 <strong>EVENTOS E SINAIS</strong></h2>
+
+<table>
+<tr>
+<th>Sinal</th>
+<th>Quando Emitido</th>
+<th>Efeito</th>
+</tr>
+<tr>
+<td>direction_change</td>
+<td>Direção do movimento muda</td>
+<td>Atualiza textura dos olhos</td>
+</tr>
+<tr>
+<td>run_away_timeout</td>
+<td>Timer de fuga expira</td>
+<td>Volta para CHASE</td>
+</tr>
+<tr>
+<td>target_reached</td>
+<td>Chega no destino</td>
+<td>Chama on_position_reached()</td>
+</tr>
+<tr>
+<td>body_entered</td>
+<td>Colisão com Pacman</td>
+<td>Come Pacman ou é comido</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>🧠 <strong>RESUMO MENTAL DO SISTEMA</strong></h2>
+
+<div class="highlight">
+<p><strong>Pense no sistema assim:</strong></p>
+<ol>
+<li><strong>Todos os fantasmas são idênticos</strong> - mesma lógica, mesmos estados</li>
+<li><strong>Diferença está nos dados</strong> - pontos de patrulha e cores</li>
+<li><strong>NavigationAgent2D faz a mágica</strong> - você só diz "vá para X"</li>
+<li><strong>Estados controlam comportamento</strong> - cada estado tem sua lógica</li>
+<li><strong>Timers controlam transições</strong> - quando mudar de estado</li>
+<li><strong>Sprites controlam visual</strong> - como aparecer em cada estado</li>
+</ol>
+
+<p><strong>Fluxo simplificado:</strong></p>
+<ul>
+<li>🏠 Começa em casa ou patrulhando</li>
+<li>🚶 Patrulha por 8 segundos</li>
+<li>🎯 Persegue Pacman indefinidamente</li>
+<li>😱 Foge quando Pacman come power pellet</li>
+<li>💀 Volta pra casa quando comido</li>
+<li>🔄 Repete o ciclo</li>
+</ul>
+</div>
+
+</body>
+</html>

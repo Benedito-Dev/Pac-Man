@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lógica do Fantasma Rosa - Fluxo Específico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 40px;
+            color: #333;
+        }
+        h1 {
+            color: #e91e63;
+            border-bottom: 3px solid #e91e63;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #1976d2;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #388e3c;
+            margin-top: 25px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .highlight {
+            background-color: #fce4ec;
+            padding: 15px;
+            border-left: 4px solid #e91e63;
+            margin: 20px 0;
+        }
+        .map {
+            background-color: #263238;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            font-family: monospace;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>🌸 LÓGICA DO FANTASMA ROSA - FLUXO ESPECÍFICO</h1>
+
+<div class="highlight">
+<h2>🎯 <strong>PERSONALIDADE DO FANTASMA ROSA</strong></h2>
+<p>O fantasma rosa patrulha a <strong>região DIREITA SUPERIOR</strong> do mapa. Sua estratégia é controlar o lado direito, forçando o Pacman para o lado esquerdo onde outros fantasmas podem pegá-lo.</p>
+</div>
+
+<hr>
+
+<h2>📍 <strong>PONTOS DE PATRULHA ESPECÍFICOS</strong></h2>
+
+<h3><strong>COORDENADAS EXATAS</strong></h3>
+<table>
+<tr>
+<th>Ponto</th>
+<th>Coordenada</th>
+<th>Localização no Mapa</th>
+<th>Estratégia</th>
+</tr>
+<tr>
+<td><strong>Pink1</strong></td>
+<td>(179, 144)</td>
+<td>Direita-Centro</td>
+<td>Ponto de entrada na região</td>
+</tr>
+<tr>
+<td><strong>Pink2</strong></td>
+<td>(300, 141)</td>
+<td>Extrema Direita-Centro</td>
+<td>Controla borda direita</td>
+</tr>
+<tr>
+<td><strong>Pink3</strong></td>
+<td>(252, 286)</td>
+<td>Direita-Inferior</td>
+<td>Bloqueia escape inferior</td>
+</tr>
+<tr>
+<td><strong>Pink4</strong></td>
+<td>(180, 288)</td>
+<td>Centro-Inferior</td>
+<td>Volta para o centro</td>
+</tr>
+</table>
+
+<h3><strong>PONTOS DA BASE</strong></h3>
+<table>
+<tr>
+<th>Ponto</th>
+<th>Coordenada</th>
+<th>Função</th>
+</tr>
+<tr>
+<td><strong>Home1</strong></td>
+<td>(51, 29)</td>
+<td>Posição superior na base</td>
+</tr>
+<tr>
+<td><strong>Home2</strong></td>
+<td>(54, -30)</td>
+<td>Posição inferior na base</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>🗺️ <strong>MAPA DE PATRULHA</strong></h2>
+
+<div class="map">
+<pre>
+                    REGIÃO DO FANTASMA ROSA
+                           (DIREITA)
+
+    ┌─────────────────────────────────────────────┐
+    │                                             │
+    │                                   Pink1     │
+    │                                   (179,144) │
+    │                                      ↓      │
+    │                                   Pink2     │
+    │                                   (300,141) │
+    │                                      ↓      │
+    │                                   Pink3     │
+    │                                   (252,286) │
+    │                                      ↓      │
+    │                                   Pink4     │
+    │                                   (180,288) │
+    │                                      ↑      │
+    └─────────────────────────────────────────────┘
+                         ↑_______________|
+                         LOOP DE VOLTA
+</pre>
+</div>
+
+<hr>
+
+<h2>🎮 <strong>FLUXO ESPECÍFICO DO FANTASMA ROSA</strong></h2>
+
+<h3><strong>FASE 1: PATRULHA (8 segundos)</strong></h3>
+<pre>
+🌸 ESTADO: SCATTER
+↓
+📍 Vai para Pink1 (179, 144) - Entrada na região direita
+↓
+✅ Chegou? → Vai para Pink2 (300, 141) - Extrema direita
+↓
+✅ Chegou? → Vai para Pink3 (252, 286) - Direita inferior
+↓
+✅ Chegou? → Vai para Pink4 (180, 288) - Centro inferior
+↓
+✅ Chegou? → Volta para Pink1 (LOOP INFINITO)
+↓
+⏰ 8 segundos acabaram? → Vai para FASE 2
+</pre>
+
+<h3><strong>FASE 2: PERSEGUIÇÃO</strong></h3>
+<pre>
+🎯 ESTADO: CHASE
+↓
+📍 Mira diretamente no Pacman
+↓
+🏃 Vai direto atrás do Pacman (atualiza posição constantemente)
+↓
+❓ O que pode acontecer?
+   ├─ 💊 Pacman comeu power pellet? → Vai para FASE 3
+   ├─ 👻 Tocou no Pacman? → Pacman morre, volta FASE 1
+   └─ 🔄 Nada? → Continua perseguindo
+</pre>
+
+<h3><strong>FASE 3: FUGA</strong></h3>
+<pre>
+😱 ESTADO: RUN_AWAY
+↓
+🔵 Fica azul (cor branca) e sem olhos
+↓
+🎲 tile_map.get_random_empty_cell_position()
+↓
+🏃💨 Foge para posição aleatória no mapa
+↓
+⏰ Metade do tempo? → Começa a piscar (branco/azul)
+↓
+❓ O que pode acontecer?
+   ├─ 🍽️ Pacman me comeu? → Vai para FASE 4
+   ├─ ⏰ Tempo de fuga acabou? → Volta FASE 2
+   └─ 🔄 Nada? → Continua fugindo
+</pre>
+
+<h3><strong>FASE 4: MORTE</strong></h3>
+<pre>
+💀 ESTADO: EATEN
+↓
+👁️ Só sobram os olhos
+↓
+🏠 Vai direto para Home1 (51, 29)
+↓
+✅ Chegou em casa? → Volta FASE 2 (perseguição)
+</pre>
+
+<hr>
+
+<h2>🎯 <strong>ESTRATÉGIA TÁTICA DO FANTASMA ROSA</strong></h2>
+
+<div class="highlight">
+<h3><strong>PAPEL NO JOGO</strong></h3>
+<ul>
+<li><strong>Controlador da Direita</strong> - Domina todo o lado direito do mapa</li>
+<li><strong>Bloqueador de Escape</strong> - Impede Pacman de fugir pela direita</li>
+<li><strong>Forçador de Movimento</strong> - Empurra Pacman para o lado esquerdo</li>
+<li><strong>Complemento Tático</strong> - Trabalha junto com outros fantasmas</li>
+</ul>
+</div>
+
+<h3><strong>EXEMPLO PRÁTICO - PRIMEIRO MINUTO</strong></h3>
+<pre>
+⏰ 0:00 - Jogo inicia
+🌸 Fantasma Rosa aparece na posição inicial
+📍 Vai para Pink1 (179, 144)
+
+⏰ 0:02 - Chegou em Pink1
+📍 Vai para Pink2 (300, 141) - Extrema direita
+
+⏰ 0:04 - Chegou em Pink2
+📍 Vai para Pink3 (252, 286) - Direita inferior
+
+⏰ 0:06 - Chegou em Pink3
+📍 Vai para Pink4 (180, 288) - Centro inferior
+
+⏰ 0:08 - Timer de 8 segundos acabou!
+🎯 MUDA PARA PERSEGUIÇÃO
+📍 Vai direto atrás do Pacman
+
+⏰ 0:15 - Pacman comeu power pellet!
+😱 MUDA PARA FUGA
+🔵 Fica azul
+📍 Vai para posição aleatória (ex: -120, 50)
+
+⏰ 0:22 - Começa a piscar (metade do tempo)
+🔵⚪ Alterna entre azul e branco
+
+⏰ 0:30 - Tempo de fuga acabou
+🎯 MUDA PARA PERSEGUIÇÃO
+📍 Vai atrás do Pacman novamente
+</pre>
+
+<hr>
+
+<h2>🔧 <strong>CONFIGURAÇÕES TÉCNICAS</strong></h2>
+
+<table>
+<tr>
+<th>Propriedade</th>
+<th>Valor</th>
+<th>Função</th>
+</tr>
+<tr>
+<td>color</td>
+<td>Rosa/Pink</td>
+<td>Cor do corpo durante movimento normal</td>
+</tr>
+<tr>
+<td>speed</td>
+<td>120</td>
+<td>Velocidade normal de movimento</td>
+</tr>
+<tr>
+<td>eaten_speed</td>
+<td>240</td>
+<td>Velocidade quando morto (só olhos)</td>
+</tr>
+<tr>
+<td>scatter_wait_time</td>
+<td>8</td>
+<td>Tempo de patrulha em segundos</td>
+</tr>
+<tr>
+<td>movement_targets</td>
+<td>pink_movement_targets.tres</td>
+<td>Arquivo com pontos específicos</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>🧠 <strong>RESUMO MENTAL - FANTASMA ROSA</strong></h2>
+
+<div class="highlight">
+<p><strong>Lembre-se:</strong></p>
+<ol>
+<li><strong>Região</strong>: Lado direito do mapa</li>
+<li><strong>Patrulha</strong>: 4 pontos em formato de "L" invertido</li>
+<li><strong>Estratégia</strong>: Bloquear escape pela direita</li>
+<li><strong>Cooperação</strong>: Empurra Pacman para outros fantasmas</li>
+<li><strong>Mesma lógica</strong>: Estados idênticos aos outros fantasmas</li>
+<li><strong>Diferença</strong>: Apenas os pontos de patrulha</li>
+</ol>
+
+<p><strong>Sequência de patrulha:</strong><br>
+Pink1 → Pink2 → Pink3 → Pink4 → Pink1 (LOOP)</p>
+
+<p><strong>Posição estratégica:</strong><br>
+Controla a região direita, forçando Pacman para a esquerda onde outros fantasmas podem interceptá-lo.</p>
+</div>
+
+</body>
+</html>
