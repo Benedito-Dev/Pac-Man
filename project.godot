@@ -15,6 +15,10 @@ run/main_scene="uid://cn6jmjwp7dmi0"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GhostStateManager="*res://scripts/managers/GhostStateManager.gd"
+
 [display]
 
 window/size/viewport_width=800

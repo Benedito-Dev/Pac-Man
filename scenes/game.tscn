@@ -592,7 +592,7 @@ position = Vector2(370, 298)
 position = Vector2(370, 318)
 
 [node name="Pellet143" parent="Pellets" instance=ExtResource("9_0tnpc")]
-position = Vector2(350, 318)
+position = Vector2(349, 318)
 
 [node name="Pellet144" parent="Pellets" instance=ExtResource("9_0tnpc")]
 position = Vector2(330, 318)
@@ -1151,7 +1151,7 @@ wait_time = 0.2
 wait_time = 3.0
 
 [node name="RedGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("11_kvpfn")]
-position = Vector2(51, 159)
+position = Vector2(71, 158)
 target = NodePath("../PacMan")
 
 [node name="BlueGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_dinhu")]

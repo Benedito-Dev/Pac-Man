@@ -1,6 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766010297
+::res://::1766026076
 icon.svg::CompressedTexture2D::2442463909604863256::1765885856::1765885935::1::::<><><>0<>0<>b7e6bf9bfd646ae8d97b753f115f79fc<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://Logica-Fantasmas/::1766010791
+FLUXO_FANTASMA_VERMELHO.md::TextFile::-1::1765829930::0::1::::<><><>0<>0<><>::
 ::res://Map/::1765885936
 Fundo_Branco.png::CompressedTexture2D::1598439648757356507::1765885856::1765885936::1::::<><><>0<>0<>1c1b764bd9b909a71f3478ef7cec6b83<>res://.godot/imported/Fundo_Branco.png-8243e91bd8bbfc4bdfbc9dbf393d5ffa.ctex::
 Fundo_Preto.png::CompressedTexture2D::5429974527643248644::1765885856::1765885936::1::::<><><>0<>0<>d574e5c134271fc0e35b9b81b55c56c6<>res://.godot/imported/Fundo_Preto.png-5403cc45f7bc308dbb4b16421ab632bb.ctex::
@@ -15,11 +17,11 @@ pacman.tscn::PackedScene::3446357630047422380::1765885856::0::1::::<><><>0<>0<><
 pellet.tscn::PackedScene::1959201591139242756::1765885856::0::1::::<><><>0<>0<><>::uid://3bjv0h02m5mn::::res://sprites/pellets/pellet.png
 power.tscn::PackedScene::5929878285162350844::1765885856::0::1::::<><><>0<>0<><>::uid://c3mml3fd1hbnu::::res://sprites/pellets/power.png
 start.tscn::PackedScene::5749860434938507729::1765885856::0::1::::<><><>0<>0<><>::uid://cq8xbk8id6h6b::::res://scripts/start.gd<>uid://dr54etyllbj8n::::res://sprites/start/Tela_Dela_de_Titulo-FINAL.png<>uid://dflov5lvjy7b::::res://sprites/start/Pressione_Start.png<>uid://brb7vw3bgn5cf::::res://sounds/02. Start Music.mp3<>uid://m6oupdgwvo5s::::res://sounds/04. PAC-MAN - Turning The Corner While Eating The Pac-dots.mp3
-::res://scenes/ghots/::1765996241
-blue_ghost.tscn::PackedScene::1732211177808244870::1765939835::0::1::::<><><>0<>0<><>::uid://co720jgp0fn23::::res://sprites/ghosts/blue/Azul-MoveSet-1.png<>uid://bw2hlbedrn4pm::::res://scripts/ghosts/blue_ghost.gd
-orange_ghost.tscn::PackedScene::5882924023247037143::1765996241::0::1::::<><><>0<>0<><>::uid://iwqaxp2v1aas::::res://scripts/ghosts/orange_ghost.gd<>uid://dl7uwst2brpcu::::res://sprites/ghosts/orange/Laranja-MoveSet-1.png
-pink_ghost.tscn::PackedScene::4291968367443031206::1765996183::0::1::::<><><>0<>0<><>::uid://dn6rdyvsp2dk1::::res://scripts/ghosts/pink_ghost.gd<>uid://bu5dpkp45t8ud::::res://sprites/ghosts/pink/Rosa-MoveSet-1.png
-red_ghost.tscn::PackedScene::3513951037637654008::1765941650::0::1::::<><><>0<>0<><>::uid://ndsmaeksh23j::::res://scripts/ghosts/red_ghost.gd<>uid://cu5s2rfx5yi0p::::res://sprites/ghosts/red/Vermelho.png<>uid://dac8y8p42jgvk::::res://sprites/ghosts/red/Vermelho-MoveSet-Piscando.png
+::res://scenes/ghots/::1766010325
+blue_ghost.tscn::PackedScene::1732211177808244870::1766010324::0::1::::<><><>0<>0<><>::uid://co720jgp0fn23::::res://sprites/ghosts/blue/Azul-MoveSet-1.png<>uid://bw2hlbedrn4pm::::res://scripts/ghosts/blue_ghost.gd
+orange_ghost.tscn::PackedScene::5882924023247037143::1766010325::0::1::::<><><>0<>0<><>::uid://iwqaxp2v1aas::::res://scripts/ghosts/orange_ghost.gd<>uid://dl7uwst2brpcu::::res://sprites/ghosts/orange/Laranja-MoveSet-1.png
+pink_ghost.tscn::PackedScene::4291968367443031206::1766010324::0::1::::<><><>0<>0<><>::uid://dn6rdyvsp2dk1::::res://scripts/ghosts/pink_ghost.gd<>uid://bu5dpkp45t8ud::::res://sprites/ghosts/pink/Rosa-MoveSet-1.png
+red_ghost.tscn::PackedScene::3513951037637654008::1766010322::0::1::::<><><>0<>0<><>::uid://ndsmaeksh23j::::res://scripts/ghosts/red_ghost.gd<>uid://cu5s2rfx5yi0p::::res://sprites/ghosts/red/Vermelho.png<>uid://dac8y8p42jgvk::::res://sprites/ghosts/red/Vermelho-MoveSet-Piscando.png
 ::res://scripts/::1765996271
 game.gd::GDScript::7088084612348491489::1765885856::0::1::::<>Node2D<><>0<>0<><>::
 pacman.gd::GDScript::267841356688681197::1765996271::0::1::::<>CharacterBody2D<><>0<>0<><>::
