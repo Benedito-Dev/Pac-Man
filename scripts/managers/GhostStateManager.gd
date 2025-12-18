@@ -23,9 +23,6 @@ func _ready():
 	add_child(scatter_timer)
 	scatter_timer.wait_time = 8.0
 	scatter_timer.timeout.connect(_on_scatter_timer_timeout)
-	
-	# Iniciar no modo scatter
-	start_scatter_mode()
 
 func start_scatter_mode():
 	current_global_state = GlobalGhostState.SCATTER

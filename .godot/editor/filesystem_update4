@@ -5,3 +5,4 @@ res://scripts/ghosts/GhostBase.gd
 res://scripts/ghosts/red_ghost.gd
 res://scenes/ghots/red_ghost.tscn
 res://scripts/game.gd
+res://scripts/managers/GhostStateManager.gd
