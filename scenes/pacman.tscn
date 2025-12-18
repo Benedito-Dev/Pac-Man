@@ -119,7 +119,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_utpjb"]
 radius = 9.0
 
-[node name="PacMan" type="CharacterBody2D"]
+[node name="PacMan" type="CharacterBody2D" groups=["pacman"]]
 position = Vector2(413, 286)
 script = ExtResource("1_kjyp3")
 

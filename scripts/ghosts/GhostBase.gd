@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name GhostBase
 
-# Estados individuais (incluem os que faltavam!)
+# Estados individuais
 enum GhostState {
 	STARTING_AT_HOME,
 	SCATTER,
@@ -14,7 +14,7 @@ enum GhostState {
 var current_state: GhostState = GhostState.STARTING_AT_HOME
 @export var movement_targets: MovementTargets
 @export var speed: float = 120.0
-@export var target: CharacterBody2D  # Referência ao Pacman
+@export var target: CharacterBody2D
 
 # Componentes
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -31,19 +31,26 @@ var run_away_timer: Timer
 func _ready():
 	# Criar timers
 	at_home_timer = Timer.new()
-	run_away_timer = Timer.new()
+	at_home_timer.wait_time = 3.0
+	at_home_timer.timeout.connect(_on_at_home_timeout)
 	add_child(at_home_timer)
+	
+	run_away_timer = Timer.new()
 	add_child(run_away_timer)
 	
-	# Conectar sinais do StateManager
+	# Conectar sinais
 	GhostStateManager.state_changed_to_scatter.connect(_on_global_scatter)
 	GhostStateManager.state_changed_to_chase.connect(_on_global_chase)
 	GhostStateManager.power_pellet_eaten.connect(_on_power_pellet_eaten)
+	nav_agent.target_reached.connect(_on_target_reached)
 	
-	# Iniciar na base
-	start_at_home()
+	# Iniciar na base (com delay)
+	call_deferred("start_at_home")
 
 func _physics_process(delta):
+	var distance = global_position.distance_to(nav_agent.target_position)
+	if distance < 5.0 and current_state != GhostState.CHASE:
+		_on_target_reached()
 	if nav_agent.is_navigation_finished():
 		return
 		
@@ -54,28 +61,49 @@ func _physics_process(delta):
 # Estados individuais
 func start_at_home():
 	current_state = GhostState.STARTING_AT_HOME
-	nav_agent.target_position = movement_targets.at_home_targets[current_home_index]
-	at_home_timer.start()
+	if movement_targets and movement_targets.at_home_targets.size() > 0:
+		nav_agent.target_position = movement_targets.at_home_targets[current_home_index]
+		at_home_timer.start()
 
 func scatter():
 	if current_state == GhostState.EATEN:
-		return  # Não muda se está morto
+		return
 	current_state = GhostState.SCATTER
-	nav_agent.target_position = movement_targets.scatter_targets[current_scatter_index]
+	if movement_targets and movement_targets.scatter_targets.size() > 0:
+		nav_agent.target_position = movement_targets.scatter_targets[current_scatter_index]
 
 func chase():
 	if current_state == GhostState.EATEN:
-		return  # Não muda se está morto
+		return
 	current_state = GhostState.CHASE
-	nav_agent.target_position = target.global_position
+	if target:
+		nav_agent.target_position = calculate_chase_target()
 
 func run_away():
 	current_state = GhostState.RUN_AWAY
-	# Lógica de fuga será implementada depois
 
 func get_eaten():
 	current_state = GhostState.EATEN
-	nav_agent.target_position = movement_targets.at_home_targets[0]
+	if movement_targets and movement_targets.at_home_targets.size() > 0:
+		nav_agent.target_position = movement_targets.at_home_targets[0]
+
+# Método para override nos filhos
+func calculate_chase_target() -> Vector2:
+	return target.global_position if target else global_position
+
+# Callbacks
+func _on_at_home_timeout():
+	GhostStateManager.start_scatter_mode()
+
+func _on_target_reached():
+	print("🔔 target_reached chamado! Estado: ", current_state)
+	match current_state:
+		GhostState.STARTING_AT_HOME:
+			current_home_index = 1 if current_home_index == 0 else 0
+			nav_agent.target_position = movement_targets.at_home_targets[current_home_index]
+		GhostState.SCATTER:
+			current_scatter_index = (current_scatter_index + 1) % movement_targets.scatter_targets.size()
+			nav_agent.target_position = movement_targets.scatter_targets[current_scatter_index]
 
 # Sinais do StateManager
 func _on_global_scatter():

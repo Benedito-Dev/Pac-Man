@@ -24,6 +24,10 @@ GhostStateManager="*res://scripts/managers/GhostStateManager.gd"
 window/size/viewport_width=800
 window/size/viewport_height=600
 
+[global_group]
+
+pacman=""
+
 [input]
 
 ui_left={

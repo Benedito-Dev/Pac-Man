@@ -221,8 +221,8 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_cr6oh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 4.0
-target_desired_distance = 8.0
+path_desired_distance = 10.0
+target_desired_distance = 5.0
 path_postprocessing = 1
 max_speed = 80.0
 
