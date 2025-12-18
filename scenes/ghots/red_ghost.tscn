@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqcgi31yifsh1"]
+[gd_scene load_steps=11 format=3 uid="uid://bqcgi31yifsh1"]
 
 [ext_resource type="Script" uid="uid://ndsmaeksh23j" path="res://scripts/ghosts/red_ghost.gd" id="1_cr6oh"]
 [ext_resource type="Texture2D" uid="uid://cu5s2rfx5yi0p" path="res://sprites/ghosts/red/Vermelho.png" id="1_ph70a"]
 [ext_resource type="Texture2D" uid="uid://dac8y8p42jgvk" path="res://sprites/ghosts/red/Vermelho-MoveSet-Piscando.png" id="3_qinqi"]
+[ext_resource type="Texture2D" uid="uid://dec7evr2t4qev" path="res://sprites/ghosts/red/Vermelho-MoveSet-Reanimando.png" id="4_ve58v"]
 
 [sub_resource type="Animation" id="Animation_cr6oh"]
 resource_name = "Move-h"
@@ -11,7 +12,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("NormalSprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("NormalSprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -35,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("NormalSprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -47,7 +48,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/path = NodePath("NormalSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,7 +63,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("NormalSprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,7 +75,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("NormalSprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -86,7 +87,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("NormalSprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -98,7 +99,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/path = NodePath("NormalSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -110,7 +111,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Scare:hframes")
+tracks/4/path = NodePath("ScareSprite:hframes")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -122,7 +123,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Scare:vframes")
+tracks/5/path = NodePath("ScareSprite:vframes")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -134,7 +135,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Scare:frame")
+tracks/6/path = NodePath("ScareSprite:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -151,7 +152,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Scare:hframes")
+tracks/0/path = NodePath("ScareSprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -163,7 +164,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Scare:vframes")
+tracks/1/path = NodePath("ScareSprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -175,7 +176,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Scare:frame")
+tracks/2/path = NodePath("ScareSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -196,12 +197,12 @@ _data = {
 size = Vector2(18, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr6oh"]
-size = Vector2(18, 17)
+size = Vector2(21, 21)
 
 [node name="RedGhost" type="CharacterBody2D"]
 script = ExtResource("1_cr6oh")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="NormalSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ph70a")
 hframes = 8
 
@@ -217,11 +218,11 @@ shape = SubResource("RectangleShape2D_ilpko")
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, -0.5)
+position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_cr6oh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 10.0
+path_desired_distance = 4.0
 target_desired_distance = 5.0
 path_postprocessing = 1
 max_speed = 80.0
@@ -231,9 +232,14 @@ debug_enabled = true
 wait_time = 0.1
 autostart = true
 
-[node name="Scare" type="Sprite2D" parent="."]
+[node name="ScareSprite" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("3_qinqi")
+hframes = 4
+
+[node name="EatenSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_ve58v")
 hframes = 4
 
 [connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]

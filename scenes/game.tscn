@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bvrqmg3iuarjh"]
+[gd_scene load_steps=26 format=4 uid="uid://bvrqmg3iuarjh"]
 
 [ext_resource type="Script" uid="uid://c78ryn8u4y06p" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cjmk5fsgs83bk" path="res://Map/Fundo_Preto.png" id="2_p57ef"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://26b08e2owu7e" path="res://scenes/pellet.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cqqqh1yilmknk" path="res://scenes/power.tscn" id="9_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bqcgi31yifsh1" path="res://scenes/ghots/red_ghost.tscn" id="11_kvpfn"]
-[ext_resource type="PackedScene" uid="uid://yxdjamk2ojlm" path="res://scenes/ghots/blue_ghost.tscn" id="12_dinhu"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ca42v"]
 vertices = PackedVector2Array(10, -6.75, 10, -2.1796875, 10, 3.7734375, 10, 10, -6.53125, 10, -6.9609375, -5.4375, -4.1328125, -7.1796875)
@@ -1208,16 +1207,12 @@ label_settings = SubResource("LabelSettings_gee14")
 [node name="IntervalBackground" type="Timer" parent="."]
 wait_time = 0.2
 
-[node name="TimerBackground" type="Timer" parent="."]
-wait_time = 3.0
+[node name="PowerTimer" type="Timer" parent="."]
+wait_time = 7.0
 
 [node name="RedGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("11_kvpfn")]
 position = Vector2(399, 348)
 speed = 80.0
-target = NodePath("../PacMan")
-
-[node name="BlueGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_dinhu")]
-position = Vector2(749, 160)
 target = NodePath("../PacMan")
 
 [node name="PortalTimer" type="Timer" parent="."]

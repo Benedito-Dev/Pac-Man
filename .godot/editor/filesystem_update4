@@ -1,0 +1,7 @@
+res://scenes/game.tscn
+res://scenes/ghots/red_ghost.tscn
+res://scripts/ghosts/GhostBase.gd
+res://scripts/pacman.gd
+res://scripts/game.gd
+res://scripts/managers/GhostStateManager.gd
+res://resources/movement_targets/red_movement_targets.tres
