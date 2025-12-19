@@ -6,3 +6,5 @@ res://scenes/ghots/orange_ghost.tscn
 res://scenes/ghots/pink_ghost.tscn
 res://scenes/ghots/red_ghost.tscn
 res://resources/movement_targets/red_movement_targets.tres
+res://scripts/game.gd
+res://scripts/pacman.gd

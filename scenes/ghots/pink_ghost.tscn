@@ -199,7 +199,7 @@ size = Vector2(17, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jft73"]
 size = Vector2(21, 21)
 
-[node name="PinkGhost" type="CharacterBody2D"]
+[node name="PinkGhost" type="CharacterBody2D" groups=["ghosts"]]
 script = ExtResource("1_jft73")
 
 [node name="NormalSprite" type="Sprite2D" parent="."]

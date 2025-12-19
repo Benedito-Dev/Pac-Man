@@ -28,6 +28,7 @@ window/size/viewport_height=600
 
 pacman=""
 red_ghost=""
+ghosts=""
 
 [input]
 

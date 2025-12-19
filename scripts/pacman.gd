@@ -67,9 +67,11 @@ func aplicar_rotacao(direcao: Vector2):
 func _on_area_deteccao_area_entered(area):
 	if "Pellet" in area.name:
 		points += 1
+		get_parent().pellet_collected()
 		area.queue_free()
 	elif "Power" in area.name:
 		points += 10 
+		get_parent().pellet_collected()
 		GhostStateManager.trigger_run_away()
 		area.queue_free()
 		print("💊 Power pellet comido!")

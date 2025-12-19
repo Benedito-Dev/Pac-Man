@@ -198,7 +198,7 @@ size = Vector2(16, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ywgxd"]
 size = Vector2(24, 24)
 
-[node name="BlueGhost" type="CharacterBody2D"]
+[node name="BlueGhost" type="CharacterBody2D" groups=["ghosts"]]
 script = ExtResource("1_ywgxd")
 
 [node name="NormalSprite" type="Sprite2D" parent="."]
