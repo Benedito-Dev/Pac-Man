@@ -197,9 +197,9 @@ _data = {
 size = Vector2(18, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cr6oh"]
-size = Vector2(21, 21)
+size = Vector2(16, 15)
 
-[node name="RedGhost" type="CharacterBody2D"]
+[node name="RedGhost" type="CharacterBody2D" groups=["red_ghost"]]
 script = ExtResource("1_cr6oh")
 
 [node name="NormalSprite" type="Sprite2D" parent="."]
@@ -218,7 +218,7 @@ shape = SubResource("RectangleShape2D_ilpko")
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0.5, -0.5)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_cr6oh")
 debug_color = Color(1, 1, 1, 0.41960785)
 
