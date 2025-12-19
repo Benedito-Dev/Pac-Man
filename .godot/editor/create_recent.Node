@@ -1,4 +1,6 @@
+HBoxContainer
 Sprite2D
+Node2D
 Timer
 NavigationAgent2D
 CollisionShape2D

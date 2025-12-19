@@ -81,12 +81,17 @@ func _physics_process(delta):
 func start_at_home():
 	set_visual_state(false)
 	current_state = GhostState.STARTING_AT_HOME
+	# Desabilitar colisão com paredes
+	collision_layer = 0
+	collision_mask = 0
 	if movement_targets and movement_targets.at_home_targets.size() > 0:
 		nav_agent.target_position = movement_targets.at_home_targets[current_home_index]
 		at_home_timer.start()
 
 func scatter():
 	set_visual_state(false)
+	collision_layer = 2  # Ghosts
+	collision_mask = 1   # Walls
 	chase_update_timer.stop()
 	run_away_update_timer.stop()
 	if current_state == GhostState.EATEN:
@@ -215,7 +220,7 @@ func _on_body_entered(body):
 		elif current_state == GhostState.CHASE or current_state == GhostState.SCATTER:
 			# Fantasma comeu o Pacman
 			print("👻 Fantasma comeu Pacman!")
-			# body.die()  # Implementar depois
+			body.die()  # Implementar depois
 
 # Sinais do StateManager
 func _on_global_scatter():

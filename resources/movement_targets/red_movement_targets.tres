@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_t7jfe")
-scatter_targets = Array[Vector2]([Vector2(150, 258), Vector2(50, 258), Vector2(50, 158), Vector2(150, 158)])
+scatter_targets = Array[Vector2]([Vector2(650, 258), Vector2(650, 158), Vector2(750, 158), Vector2(750, 258)])
 at_home_targets = Array[Vector2]([Vector2(357, 345), Vector2(357, 375)])
 metadata/_custom_type_script = "uid://c560kqhj4asv3"

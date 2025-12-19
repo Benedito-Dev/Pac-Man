@@ -5,3 +5,6 @@ res://scripts/pacman.gd
 res://scripts/game.gd
 res://scripts/managers/GhostStateManager.gd
 res://resources/movement_targets/red_movement_targets.tres
+res://scenes/ghots/pink_ghost.tscn
+res://scripts/ghosts/pink_ghost.gd
+res://resources/movement_targets/pink_movement_targets.tres

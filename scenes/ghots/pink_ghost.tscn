@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2fcdej5tkt0i"]
+[gd_scene load_steps=11 format=3 uid="uid://b2fcdej5tkt0i"]
 
 [ext_resource type="Script" uid="uid://dn6rdyvsp2dk1" path="res://scripts/ghosts/pink_ghost.gd" id="1_jft73"]
 [ext_resource type="Texture2D" uid="uid://bu5dpkp45t8ud" path="res://sprites/ghosts/pink/Rosa-MoveSet-1.png" id="1_ojktb"]
+[ext_resource type="Texture2D" uid="uid://dopp4ne33edhb" path="res://sprites/ghosts/pink/Rosa-MoveSet-Piscando.png" id="3_5pr1f"]
+[ext_resource type="Texture2D" uid="uid://bfkxxwvxmaxub" path="res://sprites/ghosts/pink/Rosa-MoveSet-Reanimando.png" id="4_lrmod"]
 
 [sub_resource type="Animation" id="Animation_jft73"]
 resource_name = "Move-h"
@@ -10,7 +12,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("NormalSprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("NormalSprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("NormalSprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -46,7 +48,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/path = NodePath("NormalSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -61,7 +63,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/path = NodePath("NormalSprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -73,7 +75,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/path = NodePath("NormalSprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -85,7 +87,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/path = NodePath("NormalSprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -97,7 +99,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/path = NodePath("NormalSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -106,23 +108,101 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ScareSprite:hframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ScareSprite:vframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScareSprite:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_lrmod"]
+resource_name = "Scare"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScareSprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScareSprite:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScareSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lrmod"]
 _data = {
 &"Move-h": SubResource("Animation_jft73"),
-&"RESET": SubResource("Animation_5pr1f")
+&"RESET": SubResource("Animation_5pr1f"),
+&"Scare": SubResource("Animation_lrmod")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojktb"]
 size = Vector2(17, 17)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jft73"]
-size = Vector2(17, 17)
+size = Vector2(21, 21)
 
 [node name="PinkGhost" type="CharacterBody2D"]
 script = ExtResource("1_jft73")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="NormalSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_ojktb")
 hframes = 8
 
@@ -143,11 +223,21 @@ shape = SubResource("RectangleShape2D_jft73")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_desired_distance = 4.0
-target_desired_distance = 8.0
+target_desired_distance = 5.0
 path_postprocessing = 1
 
 [node name="nav_timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="ScareSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_5pr1f")
+hframes = 4
+
+[node name="EatenSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("4_lrmod")
+hframes = 4
 
 [connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]

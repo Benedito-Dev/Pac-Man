@@ -3,6 +3,9 @@ extends Node2D
 @onready var Soundgame = $SoundGame
 @onready var label_points = $Points
 @onready var Pacman = $PacMan
+@onready var life1_sprite = $Lifes/Life1
+@onready var life2_sprite = $Lifes/Life2
+@onready var life3_sprite = $Lifes/Life3
 @onready var PortalTimer = $PortalTimer
 @onready var tile_map = $Map
 @onready var BlinkBackground = $IntervalBackground
@@ -17,7 +20,10 @@ func _ready():
 	GhostStateManager.power_pellet_eaten.connect(_on_power_mode_started)
 	GhostStateManager.power_mode_ended.connect(_on_power_mode_ended)
 	
-	BlinkBackground.timeout.connect(_on_blink_timeout)  # Conectar aqui
+	BlinkBackground.timeout.connect(_on_blink_timeout)
+	
+	# Conectar sinal de morte do Pacman
+	Pacman.life_lost.connect(update_lives_display)
 	
 func _process(delta):
 	# Verificar se Pacman esta fora do mapa
@@ -27,6 +33,12 @@ func _process(delta):
 		Pacman.global_position.x = 801
 	
 	label_points.text = str(Pacman.points)
+	
+func update_lives_display():
+	# Mostrar/esconder sprites baseado nas vidas do Pacman
+	life1_sprite.visible = Pacman.lives >= 1
+	life2_sprite.visible = Pacman.lives >= 2
+	life3_sprite.visible = Pacman.lives >= 3
 
 func _on_power_mode_started():
 	# Inicia efeitos visuais do power mode

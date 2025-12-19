@@ -4,8 +4,11 @@ extends CharacterBody2D
 @onready var sprite = $Pacman
 @onready var anim_player = $AnimationPlayer
 @export var points = 0
+@export var lives = 3
 
 var direcao = Vector2.RIGHT 
+
+signal life_lost
 
 func _ready():
 	anim_player.play("horizontal")
@@ -25,6 +28,27 @@ func _physics_process(delta):
 	aplicar_rotacao(direcao)
 	velocity = direcao * velocidade_pacman
 	move_and_slide()
+	
+func die():
+	lives -= 1
+	life_lost.emit()
+	print("💀 Pacman morreu! Vidas restantes: ", lives)
+	if lives <= 0:
+		game_over()
+	else:
+		respawn()
+
+func game_over():
+	print("🎮 GAME OVER!")
+	# Parar jogo, mostrar tela de game over
+	get_tree().paused = true
+
+func respawn():
+	# Voltar para posição inicial
+	global_position = Vector2(30, 338)  # Ajustar posição
+	direcao = Vector2.RIGHT
+	print("🔄 Pacman respawnou!")
+
 
 func aplicar_rotacao(direcao: Vector2):
 	if direcao.x > 0:
