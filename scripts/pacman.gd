@@ -12,6 +12,10 @@ signal life_lost
 
 func _ready():
 	anim_player.play("horizontal")
+	
+	# Conectar área de detecção do próprio Pac-Man
+	if has_node("AreaDeteccao"):
+		$AreaDeteccao.area_entered.connect(_on_area_deteccao_area_entered)
 
 func _physics_process(delta):
 	# Captura nova direção

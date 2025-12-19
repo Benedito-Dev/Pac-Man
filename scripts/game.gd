@@ -3,7 +3,6 @@ extends Node2D
 @onready var Soundgame = $SoundGame
 @onready var points_container = $PointsContainer
 @onready var label_points = $Points
-var current_level: int = 1
 var total_pellets: int = 322
 var collected_pellets: int = 0
 var number_textures = []
@@ -77,38 +76,12 @@ func update_points_display(points: int):
 func pellet_collected():
 	collected_pellets += 1
 	if collected_pellets >= total_pellets:
-		next_level()
+		player_wins() 
 		
-func next_level():
-	current_level += 1
-	collected_pellets = 0  # Reset contador
-	print("🎉 Level ", current_level, " alcançado!")
-	
-	# Reset do jogo (implementar depois)
-	reset_game()
-
-func reset_game():
-	# Placeholder - implementar reset completo
-	print("🔄 Resetando jogo para próximo level...")
-	
-	# 1. Reset Pacman
-	Pacman.global_position = Vector2(30, 338)  # Posição inicial
-	Pacman.direcao = Vector2.RIGHT
-	
-	# 2. Reset Fantasmas - voltar para base
-	var all_nodes = get_tree().get_nodes_in_group("ghosts")
-	for node in all_nodes:
-		if node is GhostBase:
-			if node.movement_targets and node.movement_targets.at_home_targets.size() > 0:
-				node.global_position = node.movement_targets.at_home_targets[0]
-		
-			# Reiniciar estado
-			node.start_at_home()
-	
-	tile_map.set_cell(Vector2i(19, 16), 0, Vector2i(28, 0))
-			
-	# 3. Reiniciar timer do portão
-	PortalTimer.start()
+func player_wins():
+	print("🎉 VITÓRIA! Todas as pellets coletadas!")
+	get_tree().paused = true
+	# Mostrar tela de vitória aqui
 
 func _on_power_mode_started():
 	# Inicia efeitos visuais do power mode

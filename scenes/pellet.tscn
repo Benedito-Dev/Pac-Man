@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_bonx2"]
 radius = 4.0
 
-[node name="Pellet" type="Area2D"]
+[node name="Pellet" type="Area2D" groups=["pellets"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_euuo5")
