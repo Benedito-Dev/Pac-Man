@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://bvrqmg3iuarjh"]
+[gd_scene load_steps=34 format=4 uid="uid://bvrqmg3iuarjh"]
 
 [ext_resource type="Script" uid="uid://c78ryn8u4y06p" path="res://scripts/game.gd" id="1_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://cjmk5fsgs83bk" path="res://Map/Fundo_Preto.png" id="2_p57ef"]
@@ -11,9 +11,14 @@
 [ext_resource type="PackedScene" uid="uid://26b08e2owu7e" path="res://scenes/pellet.tscn" id="9_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://cqqqh1yilmknk" path="res://scenes/power.tscn" id="9_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bqcgi31yifsh1" path="res://scenes/ghots/red_ghost.tscn" id="11_kvpfn"]
+[ext_resource type="Resource" uid="uid://7hpoywq2u8kw" path="res://resources/movement_targets/red_movement_targets.tres" id="12_264po"]
 [ext_resource type="PackedScene" uid="uid://b2fcdej5tkt0i" path="res://scenes/ghots/pink_ghost.tscn" id="12_dinhu"]
 [ext_resource type="Texture2D" uid="uid://ctdtsu7c1dlfk" path="res://sprites/pacman/PAC-MAN.png" id="13_kvuet"]
+[ext_resource type="Resource" uid="uid://iomkg02cp55r" path="res://resources/movement_targets/pink_movement_targets.tres" id="14_1kice"]
 [ext_resource type="PackedScene" uid="uid://cp2y5top1acj4" path="res://scenes/ghots/orange_ghost.tscn" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://yxdjamk2ojlm" path="res://scenes/ghots/blue_ghost.tscn" id="15_ir15t"]
+[ext_resource type="Resource" uid="uid://bhycbaqv02e8u" path="res://resources/movement_targets/orange_movement_targets.tres" id="17_5newe"]
+[ext_resource type="Resource" uid="uid://d4dtau8srl2xe" path="res://resources/movement_targets/blue_movement_targets.tres" id="19_37s47"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ca42v"]
 vertices = PackedVector2Array(10, -6.75, 10, -2.1796875, 10, 3.7734375, 10, 10, -6.53125, 10, -6.9609375, -5.4375, -4.1328125, -7.1796875)
@@ -1207,6 +1212,7 @@ wait_time = 7.0
 
 [node name="RedGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("11_kvpfn")]
 position = Vector2(399, 348)
+movement_targets = ExtResource("12_264po")
 speed = 80.0
 target = NodePath("../PacMan")
 
@@ -1221,6 +1227,7 @@ one_shot = true
 
 [node name="PinkGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("12_dinhu")]
 position = Vector2(381, 349)
+movement_targets = ExtResource("14_1kice")
 speed = 80.0
 target = NodePath("../PacMan")
 
@@ -1264,6 +1271,13 @@ vertical_alignment = 1
 
 [node name="OrangeGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("14_trtic")]
 position = Vector2(359, 372)
+movement_targets = ExtResource("17_5newe")
+speed = 80.0
+target = NodePath("../PacMan")
+
+[node name="BlueGhost" parent="." node_paths=PackedStringArray("target") instance=ExtResource("15_ir15t")]
+position = Vector2(420, 375)
+movement_targets = ExtResource("19_37s47")
 speed = 80.0
 target = NodePath("../PacMan")
 
