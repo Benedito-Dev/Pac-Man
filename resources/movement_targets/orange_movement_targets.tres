@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MovementTargets" load_steps=2 format=3 uid="uid://bhycbaqv02e8u"]
+
+[ext_resource type="Script" uid="uid://c560kqhj4asv3" path="res://scripts/resources/MovementTargets.gd" id="1_sg666"]
+
+[resource]
+script = ExtResource("1_sg666")
+scatter_targets = Array[Vector2]([Vector2(150, 418), Vector2(50, 418), Vector2(50, 498), Vector2(150, 498)])
+at_home_targets = Array[Vector2]([Vector2(381, 349), Vector2(381, 379)])
+metadata/_custom_type_script = "uid://c560kqhj4asv3"

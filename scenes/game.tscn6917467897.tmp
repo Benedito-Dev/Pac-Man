@@ -1268,6 +1268,5 @@ speed = 80.0
 target = NodePath("../PacMan")
 
 [connection signal="finished" from="SoundGame" to="." method="_on_sound_game_finished"]
-[connection signal="timeout" from="PowerTimer" to="PacMan" method="_on_power_timer_timeout"]
 [connection signal="timeout" from="PortalTimer" to="." method="_on_portal_timer_timeout"]
 [connection signal="timeout" from="ghosts_base" to="." method="_on_ghosts_base_timeout"]

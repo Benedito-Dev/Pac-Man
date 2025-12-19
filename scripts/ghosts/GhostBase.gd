@@ -58,7 +58,7 @@ func _ready():
 	GhostStateManager.power_pellet_eaten.connect(_on_power_pellet_eaten)
 	nav_agent.target_reached.connect(_on_target_reached)
 	
-		# Conectar colisão do DetectionArea
+	# Conectar colisão do DetectionArea
 	if has_node("DetectionArea"):
 		$DetectionArea.body_entered.connect(_on_body_entered)
 	
@@ -94,8 +94,6 @@ func scatter():
 	collision_mask = 1   # Walls
 	chase_update_timer.stop()
 	run_away_update_timer.stop()
-	if current_state == GhostState.EATEN:
-		return
 	current_state = GhostState.SCATTER
 	if movement_targets and movement_targets.scatter_targets.size() > 0:
 		nav_agent.target_position = movement_targets.scatter_targets[current_scatter_index]
@@ -220,7 +218,7 @@ func _on_body_entered(body):
 		elif current_state == GhostState.CHASE or current_state == GhostState.SCATTER:
 			# Fantasma comeu o Pacman
 			print("👻 Fantasma comeu Pacman!")
-			body.die()  # Implementar depois
+			body.die()
 
 # Sinais do StateManager
 func _on_global_scatter():

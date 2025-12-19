@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cp2y5top1acj4"]
+[gd_scene load_steps=12 format=3 uid="uid://cp2y5top1acj4"]
 
 [ext_resource type="Script" uid="uid://iwqaxp2v1aas" path="res://scripts/ghosts/orange_ghost.gd" id="1_wwebl"]
 [ext_resource type="Texture2D" uid="uid://dl7uwst2brpcu" path="res://sprites/ghosts/orange/Laranja-MoveSet-1.png" id="2_74yh2"]
+[ext_resource type="Texture2D" uid="uid://bt281wpua8r51" path="res://sprites/ghosts/orange/Laranja-MoveSet-Piscando.png" id="3_74yh2"]
+[ext_resource type="Texture2D" uid="uid://bnfaj5d8tdb68" path="res://sprites/ghosts/orange/Laranja-MoveSet-Reanimando.png" id="4_xa7h3"]
 
 [sub_resource type="Animation" id="Animation_xa7h3"]
 resource_name = "Move-h"
@@ -10,7 +12,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/path = NodePath("NormalSprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -22,7 +24,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/path = NodePath("NormalSprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -34,7 +36,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/path = NodePath("NormalSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -49,7 +51,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/path = NodePath("NormalSprite:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -61,7 +63,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/path = NodePath("NormalSprite:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -73,7 +75,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/path = NodePath("NormalSprite:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -82,23 +84,92 @@ tracks/2/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScareSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_e6b17"]
+resource_name = "Scare"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NormalSprite:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NormalSprite:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NormalSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ScareSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e6b17"]
 _data = {
 &"Move-h": SubResource("Animation_xa7h3"),
-&"RESET": SubResource("Animation_c0772")
+&"RESET": SubResource("Animation_c0772"),
+&"Scare": SubResource("Animation_e6b17")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxyns"]
 size = Vector2(19, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68c34"]
-size = Vector2(19, 20)
+size = Vector2(23, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xa7h3"]
+radius = 61.0
 
 [node name="OrangeGhost" type="CharacterBody2D"]
 script = ExtResource("1_wwebl")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="NormalSprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_74yh2")
 hframes = 8
 
@@ -111,9 +182,9 @@ libraries = {
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_dxyns")
 
-[node name="DetecionArea" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetecionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_68c34")
 
@@ -121,9 +192,25 @@ shape = SubResource("RectangleShape2D_68c34")
 path_desired_distance = 8.0
 target_desired_distance = 4.0
 path_postprocessing = 1
+debug_enabled = true
 
 [node name="nav_timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="ScareSprite" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_74yh2")
+hframes = 4
+
+[node name="EatenSprite" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("4_xa7h3")
+hframes = 4
+
+[node name="OrangeScare" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OrangeScare"]
+shape = SubResource("CircleShape2D_xa7h3")
 
 [connection signal="timeout" from="nav_timer" to="." method="_on_nav_timer_timeout"]

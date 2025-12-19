@@ -1,7 +1,10 @@
 extends Node2D
 
 @onready var Soundgame = $SoundGame
+@onready var points_container = $PointsContainer
 @onready var label_points = $Points
+var number_textures = []
+var last_points = -1 
 @onready var Pacman = $PacMan
 @onready var life1_sprite = $Lifes/Life1
 @onready var life2_sprite = $Lifes/Life2
@@ -25,6 +28,13 @@ func _ready():
 	# Conectar sinal de morte do Pacman
 	Pacman.life_lost.connect(update_lives_display)
 	
+	# Carregar sprites dos números (0-9)
+	for i in range(10):
+		var texture = load("res://sprites/numbers/" + str(i) + ".png")
+		number_textures.append(texture)
+		
+	points_container.alignment = BoxContainer.ALIGNMENT_CENTER
+	
 func _process(delta):
 	# Verificar se Pacman esta fora do mapa
 	if Pacman.global_position.x > 800:
@@ -32,6 +42,10 @@ func _process(delta):
 	elif Pacman.global_position.x < -1:
 		Pacman.global_position.x = 801
 	
+	if Pacman.points != last_points:
+		update_points_display(Pacman.points)
+		last_points = Pacman.points
+		
 	label_points.text = str(Pacman.points)
 	
 func update_lives_display():
@@ -39,6 +53,23 @@ func update_lives_display():
 	life1_sprite.visible = Pacman.lives >= 1
 	life2_sprite.visible = Pacman.lives >= 2
 	life3_sprite.visible = Pacman.lives >= 3
+
+func update_points_display(points: int):
+	# Limpar números antigos
+	for child in points_container.get_children():
+		points_container.remove_child(child)
+		child.queue_free()
+	
+	# Converter pontos para texto (ex: 1250 → "1250")
+	var points_str = str(points)
+	
+	# Criar sprite para cada dígito
+	for digit_char in points_str:
+		var digit = int(digit_char)  # "1" → 1
+		var sprite = Sprite2D.new()
+		sprite.texture = number_textures[digit]  # Usar textura do número
+		sprite.scale = Vector2(0.5, 0.5)  # ← 50% do tamanho originals
+		points_container.add_child(sprite)
 
 func _on_power_mode_started():
 	# Inicia efeitos visuais do power mode

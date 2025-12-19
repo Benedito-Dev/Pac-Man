@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766092374
+::res://::1766107191
 icon.svg::CompressedTexture2D::2442463909604863256::1765885856::1765885935::1::::<><><>0<>0<>b7e6bf9bfd646ae8d97b753f115f79fc<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 ::res://Logica-Fantasmas/::1766010791
 FLUXO_FANTASMA_VERMELHO.md::TextFile::-1::1765829930::0::1::::<><><>0<>0<><>::
@@ -12,31 +12,32 @@ Painel-Oficial.png::CompressedTexture2D::6800475320066429518::1765885856::176588
 Bolinhas.png::CompressedTexture2D::9009613955756154843::1765885856::1765885936::1::::<><><>0<>0<>068edb67ef7427c7362ac3dbd9f28ae7<>res://.godot/imported/Bolinhas.png-4f7a40d98ebb7e3cca120245a5c190aa.ctex::
 Tiles.png::CompressedTexture2D::6931613586204052803::1765885856::1765885936::1::::<><><>0<>0<>c44b30ef72db28eae42c463f0b25d743<>res://.godot/imported/Tiles.png-bb48fb1a0eb287d91b787bab51052a71.ctex::
 ::res://resources/::1766027252
-::res://resources/movement_targets/::1766030416
-red_movement_targets.tres::Resource/MovementTargets::2261430692011593278::1766030416::0::1::::<><><>0<>0<><>::uid://c560kqhj4asv3::::res://scripts/resources/MovementTargets.gd
-::res://scenes/::1766092085
-game.tscn::PackedScene::3896474082106774077::1766092085::0::1::::<><><>0<>0<><>::uid://c78ryn8u4y06p::::res://scripts/game.gd<>uid://cjmk5fsgs83bk::::res://Map/Fundo_Preto.png<>uid://bpdpahxjuojo3::::res://scenes/pacman.tscn<>uid://w1kckaib76vf::::res://Map/Fundo_Branco.png<>uid://dqgn25iltr7mi::::res://sounds/03. PAC-MAN - Eating The Pac-dots.mp3<>uid://c50ywsqiyi8s2::::res://Map/Tiles/Tiles.png<>uid://c35g3nhiufb2m::::res://Map/Painel-Oficial.png<>uid://bjlinpxbkix7y::::res://sprites/hud/Pontuacao.png<>uid://26b08e2owu7e::::res://scenes/pellet.tscn<>uid://cqqqh1yilmknk::::res://scenes/power.tscn<>uid://bqcgi31yifsh1::::res://scenes/ghots/red_ghost.tscn<>uid://yxdjamk2ojlm::::res://scenes/ghots/blue_ghost.tscn
+::res://resources/movement_targets/::1766106013
+pink_movement_targets.tres::Resource/MovementTargets::591158854503608125::1766106012::0::1::::<><><>0<>0<><>::uid://c560kqhj4asv3::::res://scripts/resources/MovementTargets.gd
+red_movement_targets.tres::Resource/MovementTargets::2261430692011593278::1766104326::0::1::::<><><>0<>0<><>::uid://c560kqhj4asv3::::res://scripts/resources/MovementTargets.gd
+::res://scenes/::1766107162
+game.tscn::PackedScene::3896474082106774077::1766107162::0::1::::<><><>0<>0<><>::uid://c78ryn8u4y06p::::res://scripts/game.gd<>uid://cjmk5fsgs83bk::::res://Map/Fundo_Preto.png<>uid://bpdpahxjuojo3::::res://scenes/pacman.tscn<>uid://w1kckaib76vf::::res://Map/Fundo_Branco.png<>uid://dqgn25iltr7mi::::res://sounds/03. PAC-MAN - Eating The Pac-dots.mp3<>uid://c50ywsqiyi8s2::::res://Map/Tiles/Tiles.png<>uid://c35g3nhiufb2m::::res://Map/Painel-Oficial.png<>uid://bjlinpxbkix7y::::res://sprites/hud/Pontuacao.png<>uid://26b08e2owu7e::::res://scenes/pellet.tscn<>uid://cqqqh1yilmknk::::res://scenes/power.tscn<>uid://bqcgi31yifsh1::::res://scenes/ghots/red_ghost.tscn<>uid://b2fcdej5tkt0i::::res://scenes/ghots/pink_ghost.tscn<>uid://ctdtsu7c1dlfk::::res://sprites/pacman/PAC-MAN.png
 pacman.tscn::PackedScene::3446357630047422380::1766087910::0::1::::<><><>0<>0<><>::uid://ctdtsu7c1dlfk::::res://sprites/pacman/PAC-MAN.png<>uid://d20kqcei3nn6::::res://scripts/pacman.gd
 pellet.tscn::PackedScene::1959201591139242756::1765885856::0::1::::<><><>0<>0<><>::uid://3bjv0h02m5mn::::res://sprites/pellets/pellet.png
 power.tscn::PackedScene::5929878285162350844::1765885856::0::1::::<><><>0<>0<><>::uid://c3mml3fd1hbnu::::res://sprites/pellets/power.png
 start.tscn::PackedScene::5749860434938507729::1765885856::0::1::::<><><>0<>0<><>::uid://cq8xbk8id6h6b::::res://scripts/start.gd<>uid://dr54etyllbj8n::::res://sprites/start/Tela_Dela_de_Titulo-FINAL.png<>uid://dflov5lvjy7b::::res://sprites/start/Pressione_Start.png<>uid://brb7vw3bgn5cf::::res://sounds/02. Start Music.mp3<>uid://m6oupdgwvo5s::::res://sounds/04. PAC-MAN - Turning The Corner While Eating The Pac-dots.mp3
-::res://scenes/ghots/::1766090944
+::res://scenes/ghots/::1766106030
 blue_ghost.tscn::PackedScene::1732211177808244870::1766087959::0::1::::<><><>0<>0<><>::uid://co720jgp0fn23::::res://sprites/ghosts/blue/Azul-MoveSet-1.png<>uid://bw2hlbedrn4pm::::res://scripts/ghosts/blue_ghost.gd
 orange_ghost.tscn::PackedScene::5882924023247037143::1766010325::0::1::::<><><>0<>0<><>::uid://iwqaxp2v1aas::::res://scripts/ghosts/orange_ghost.gd<>uid://dl7uwst2brpcu::::res://sprites/ghosts/orange/Laranja-MoveSet-1.png
-pink_ghost.tscn::PackedScene::4291968367443031206::1766010324::0::1::::<><><>0<>0<><>::uid://dn6rdyvsp2dk1::::res://scripts/ghosts/pink_ghost.gd<>uid://bu5dpkp45t8ud::::res://sprites/ghosts/pink/Rosa-MoveSet-1.png
-red_ghost.tscn::PackedScene::3513951037637654008::1766090944::0::1::::<><><>0<>0<><>::uid://ndsmaeksh23j::::res://scripts/ghosts/red_ghost.gd<>uid://cu5s2rfx5yi0p::::res://sprites/ghosts/red/Vermelho.png<>uid://dac8y8p42jgvk::::res://sprites/ghosts/red/Vermelho-MoveSet-Piscando.png
-::res://scripts/::1766091317
-game.gd::GDScript::7088084612348491489::1766091317::0::1::::<>Node2D<><>0<>0<><>::
-pacman.gd::GDScript::267841356688681197::1765996271::0::1::::<>CharacterBody2D<><>0<>0<><>::
+pink_ghost.tscn::PackedScene::4291968367443031206::1766106029::0::1::::<><><>0<>0<><>::uid://dn6rdyvsp2dk1::::res://scripts/ghosts/pink_ghost.gd<>uid://bu5dpkp45t8ud::::res://sprites/ghosts/pink/Rosa-MoveSet-1.png<>uid://dopp4ne33edhb::::res://sprites/ghosts/pink/Rosa-MoveSet-Piscando.png<>uid://bfkxxwvxmaxub::::res://sprites/ghosts/pink/Rosa-MoveSet-Reanimando.png
+red_ghost.tscn::PackedScene::3513951037637654008::1766106030::0::1::::<><><>0<>0<><>::uid://ndsmaeksh23j::::res://scripts/ghosts/red_ghost.gd<>uid://cu5s2rfx5yi0p::::res://sprites/ghosts/red/Vermelho.png<>uid://dac8y8p42jgvk::::res://sprites/ghosts/red/Vermelho-MoveSet-Piscando.png<>uid://dec7evr2t4qev::::res://sprites/ghosts/red/Vermelho-MoveSet-Reanimando.png
+::res://scripts/::1766107161
+game.gd::GDScript::7088084612348491489::1766107161::0::1::::<>Node2D<><>0<>0<><>::
+pacman.gd::GDScript::267841356688681197::1766105946::0::1::::<>CharacterBody2D<><>0<>0<><>::
 start.gd::GDScript::5965386184686993571::1765885856::0::1::::<>Node2D<><>0<>0<><>::
-::res://scripts/ghosts/::1766092085
+::res://scripts/ghosts/::1766105487
 blue_ghost.gd::GDScript::3986758164633883350::1765981191::0::1::::<>CharacterBody2D<><>0<>0<><>::
-GhostBase.gd::GDScript::3834548470869048270::1766092085::0::1::::GhostBase<>CharacterBody2D<><>0<>0<><>::
+GhostBase.gd::GDScript::3834548470869048270::1766105487::0::1::::GhostBase<>CharacterBody2D<><>0<>0<><>::
 orange_ghost.gd::GDScript::607899764042798546::1765996170::0::1::::<>CharacterBody2D<><>0<>0<><>::
-pink_ghost.gd::GDScript::8136751568848565698::1765981332::0::1::::<>CharacterBody2D<><>0<>0<><>::
+pink_ghost.gd::GDScript::8136751568848565698::1766104948::0::1::::<>GhostBase<><>0<>0<><>::
 red_ghost.gd::GDScript::919762442611188677::1766087910::0::1::::<>GhostBase<><>0<>0<><>::
-::res://scripts/managers/::1766091779
-GhostStateManager.gd::GDScript::8863840708393713952::1766091779::0::1::::<>Node<><>0<>0<><>::
+::res://scripts/managers/::1766095038
+GhostStateManager.gd::GDScript::8863840708393713952::1766095038::0::1::::<>Node<><>0<>0<><>::
 ::res://scripts/resources/::1766026514
 MovementTargets.gd::GDScript::6944039021296164574::1766026514::0::1::::MovementTargets<>Resource<><>0<>0<><>::
 ::res://sounds/::1765885935
@@ -50,7 +51,7 @@ MovementTargets.gd::GDScript::6944039021296164574::1766026514::0::1::::MovementT
 08. Ghost - Spurt Move #2.mp3::AudioStreamMP3::1196106405637952340::1765885856::1765885935::1::::<><><>0<>0<>99aebf7146302144a1e243d1b8450631<>res://.godot/imported/08. Ghost - Spurt Move #2.mp3-e4c5f9a1634e89e558bac901d2671964.mp3str::
 09. Ghost - Spurt Move #3.mp3::AudioStreamMP3::8879575897082848129::1765885856::1765885935::1::::<><><>0<>0<>fc32928852853a4e4280670193b730dd<>res://.godot/imported/09. Ghost - Spurt Move #3.mp3-53eec30a6f9310d7ce5cc50aef577caf.mp3str::
 10. Ghost - Spurt Move #4.mp3::AudioStreamMP3::6125221190859384568::1765885856::1765885935::1::::<><><>0<>0<>1771f49d9fad50d3a9cb497f141a9a2b<>res://.godot/imported/10. Ghost - Spurt Move #4.mp3-897664b05ad30d100b137c579949691c.mp3str::
-::res://sprites/::1766087640
+::res://sprites/::1766106460
 ::res://sprites/ghosts/::1765980664
 ::res://sprites/ghosts/blue/::1765938848
 Azul-MoveSet-1.png::CompressedTexture2D::5823229752795015294::1765938828::1765938848::1::::<><><>0<>0<>6ec3ed26c4684ddf1211cb32ce155a97<>res://.godot/imported/Azul-MoveSet-1.png-dd42d677eb9285660d2a5153cb2dbefd.ctex::
@@ -70,6 +71,17 @@ Vermelho-MoveSet-Reanimando.png::CompressedTexture2D::7446097398589032085::17659
 Vermelho.png::CompressedTexture2D::6239691596780904385::1765885856::1765885935::1::::<><><>0<>0<>8318bc7c205a5bd6da66cd5286e02b48<>res://.godot/imported/Vermelho.png-a5b313d6fb3cdf2b9c49f3c5372630f0.ctex::
 ::res://sprites/hud/::1765885935
 Pontuacao.png::CompressedTexture2D::3041338206432840052::1765885856::1765885935::1::::<><><>0<>0<>bee51e22ff574368597406abb4f6b0b2<>res://.godot/imported/Pontuacao.png-b26582ceb165ed1cb590fc340effe50b.ctex::
+::res://sprites/numbers/::1766106562
+0.png::CompressedTexture2D::457353405083439761::1766106500::1766106562::1::::<><><>0<>0<>8132e0812e389ac116fd15aa94af84b6<>res://.godot/imported/0.png-4807823828b5b9c10a530f79be21c5f4.ctex::
+1.png::CompressedTexture2D::641262289104214994::1766106493::1766106562::1::::<><><>0<>0<>394d77703905c427b699dea3dbb3f4e9<>res://.godot/imported/1.png-60d9a57314bd88c6a76ca1f54c6b8da5.ctex::
+2.png::CompressedTexture2D::5379832741897652320::1766106505::1766106562::1::::<><><>0<>0<>646d0edb796a0e94433a49e83e606704<>res://.godot/imported/2.png-c688ad30c40909a939c5ab8a2b63f71c.ctex::
+3.png::CompressedTexture2D::3389779947378725488::1766106509::1766106562::1::::<><><>0<>0<>fbd462f4668909695ab1279df2dd79f2<>res://.godot/imported/3.png-3139366ef14cce7a2868c7d7dec5d6e4.ctex::
+4.png::CompressedTexture2D::7782538923537052177::1766106514::1766106562::1::::<><><>0<>0<>21e3114f936f982866ed0187f4c527c3<>res://.godot/imported/4.png-bac42ee3963e338a5aca82a5aac65281.ctex::
+5.png::CompressedTexture2D::792887935466326080::1766106518::1766106562::1::::<><><>0<>0<>8bde5787a0b76bb38fabdceefdb8b0bc<>res://.godot/imported/5.png-4ba1f47fdf543673049bfb6415ffc4e8.ctex::
+6.png::CompressedTexture2D::884137201802384631::1766106523::1766106562::1::::<><><>0<>0<>6a33b250e5c5b8ab89751ff6f449f5a9<>res://.godot/imported/6.png-7f3c9ac47df0722cbc6984a3850f91de.ctex::
+7.png::CompressedTexture2D::241166283700379296::1766106529::1766106562::1::::<><><>0<>0<>06103af7a6e2c66e1fb2422ebd176900<>res://.godot/imported/7.png-a8b1d3af2852054bced3b68f3bf8f48e.ctex::
+8.png::CompressedTexture2D::7388525170910684041::1766106533::1766106562::1::::<><><>0<>0<>3789fb82be9d22ffce05867d3aa77f40<>res://.godot/imported/8.png-34a5b4f0ee0726479ae5ffc8ef541bde.ctex::
+9.png::CompressedTexture2D::2062177573719315207::1766106538::1766106562::1::::<><><>0<>0<>300b49d6cba5e40d2774c504ec0d1882<>res://.godot/imported/9.png-cebc63a514c458a489fd50ed58307e51.ctex::
 ::res://sprites/pacman/::1765885935
 PAC-MAN.png::CompressedTexture2D::6113809396950338264::1765885856::1765885935::1::::<><><>0<>0<>29d502e374660950ab35bd0201441b46<>res://.godot/imported/PAC-MAN.png-608299081be1706f3782d21e3593d18b.ctex::
 ::res://sprites/pellets/::1765885935

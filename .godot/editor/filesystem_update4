@@ -1,10 +1,9 @@
 res://scenes/game.tscn
-res://scenes/ghots/red_ghost.tscn
-res://scripts/ghosts/GhostBase.gd
-res://scripts/pacman.gd
 res://scripts/game.gd
-res://scripts/managers/GhostStateManager.gd
-res://resources/movement_targets/red_movement_targets.tres
 res://scenes/ghots/pink_ghost.tscn
 res://scripts/ghosts/pink_ghost.gd
-res://resources/movement_targets/pink_movement_targets.tres
+res://scenes/ghots/orange_ghost.tscn
+res://resources/movement_targets/orange_movement_targets.tres
+res://scripts/ghosts/orange_ghost.gd
+res://scripts/ghosts/GhostBase.gd
+res://scripts/pacman.gd
