@@ -15,6 +15,7 @@ var current_state: GhostState = GhostState.STARTING_AT_HOME
 @export var movement_targets: MovementTargets
 @export var speed: float = 120.0
 @export var target: CharacterBody2D
+var last_direction: Vector2 = Vector2.ZERO
 
 # Componentes
 @onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -76,6 +77,24 @@ func _physics_process(delta):
 	var direction = to_local(nav_agent.get_next_path_position()).normalized()
 	velocity = direction * speed
 	move_and_slide()
+	
+	# Detectar direção atual
+	var current_direction = velocity.normalized()
+	
+	# Só mudar animação se direção mudou significativamente
+	if current_direction.distance_to(last_direction) > 0.5:
+		update_animation_direction(current_direction)
+		last_direction = current_direction
+
+func update_animation_direction(direction: Vector2):
+	if direction.y < -0.5:  # Movendo para cima
+		anim_player.play("Top")
+	if direction.y > 0.5:
+		anim_player.play("Down")
+	if direction.x > 0.5:
+		anim_player.play("Right")
+	if direction.x < -0.5:
+		anim_player.play("Left")
 
 # Estados individuais
 func start_at_home():
@@ -151,8 +170,18 @@ func calculate_chase_target() -> Vector2:
 
 # Callbacks
 func _on_at_home_timeout():
-	GhostStateManager.start_scatter_mode()
-	print("🏠 Saiu da base, entrando em SCATTER")
+	# Ativar colisões para sair da base
+	collision_layer = 2  # Ghosts
+	collision_mask = 1   # Walls
+	
+	# Mudar para o estado atual do sistema de padrões
+	match GhostStateManager.current_global_state:
+		GhostStateManager.GlobalGhostState.SCATTER:
+			scatter()
+		GhostStateManager.GlobalGhostState.CHASE:
+			chase()
+	
+	print("🏠 Saiu da base")
 
 func _on_target_reached():
 	match current_state:
@@ -197,7 +226,6 @@ func set_visual_state(is_scared: bool):
 	else:
 		normal_sprite.visible = true
 		scare_sprite.visible = false
-		anim_player.play("Move-h")
 
 func set_visual_state_eaten(is_eaten: bool):
 	if is_eaten:
