@@ -87,6 +87,9 @@ func _physics_process(delta):
 		last_direction = current_direction
 
 func update_animation_direction(direction: Vector2):
+	if current_state == GhostState.RUN_AWAY:
+		return
+	
 	if direction.y < -0.5:  # Movendo para cima
 		anim_player.play("Top")
 	if direction.y > 0.5:

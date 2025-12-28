@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var Soundgame = $SoundGame
+@onready var DieSound = $DiePacman
 @onready var points_container = $PointsContainer
 @onready var label_points = $Points
 var total_pellets: int = 322
@@ -39,10 +40,10 @@ func _ready():
 	
 func _process(delta):
 	# Verificar se Pacman esta fora do mapa
-	if Pacman.global_position.x > 800:
-		Pacman.global_position.x = -1
-	elif Pacman.global_position.x < -1:
-		Pacman.global_position.x = 801
+	if Pacman.global_position.x > 775:
+		Pacman.global_position.x = 20
+	elif Pacman.global_position.x < 20:
+		Pacman.global_position.x = 775
 	
 	if Pacman.points != last_points:
 		update_points_display(Pacman.points)
@@ -55,6 +56,17 @@ func update_lives_display():
 	life1_sprite.visible = Pacman.lives >= 1
 	life2_sprite.visible = Pacman.lives >= 2
 	life3_sprite.visible = Pacman.lives >= 3
+	
+	if Pacman.lives <= 0:
+		game_over()
+		
+func game_over():
+	Soundgame.stop()
+	Pacman.is_dead = true
+	DieSound.play()
+	await DieSound.finished
+	print("🎮 GAME OVER scrit game!")
+	get_tree().paused = true
 
 func update_points_display(points: int):
 	# Limpar números antigos

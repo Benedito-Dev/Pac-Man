@@ -7,8 +7,10 @@ extends CharacterBody2D
 @export var lives = 3
 
 var direcao = Vector2.RIGHT 
+var is_dead = false
 
 signal life_lost
+signal points_changed(points: int)
 
 func _ready():
 	anim_player.play("horizontal")
@@ -18,6 +20,9 @@ func _ready():
 		$AreaDeteccao.area_entered.connect(_on_area_deteccao_area_entered)
 
 func _physics_process(delta):
+	if is_dead:  # ← Bloqueia movimento se morto
+		return
+	
 	# Captura nova direção
 	if Input.is_action_just_pressed("ui_right"):
 		direcao = Vector2.RIGHT
@@ -37,15 +42,8 @@ func die():
 	lives -= 1
 	life_lost.emit()
 	print("💀 Pacman morreu! Vidas restantes: ", lives)
-	if lives <= 0:
-		game_over()
-	else:
+	if lives > 0:
 		respawn()
-
-func game_over():
-	print("🎮 GAME OVER!")
-	# Parar jogo, mostrar tela de game over
-	get_tree().paused = true
 
 func respawn():
 	# Voltar para posição inicial
@@ -71,10 +69,12 @@ func aplicar_rotacao(direcao: Vector2):
 func _on_area_deteccao_area_entered(area):
 	if "Pellet" in area.name:
 		points += 1
+		points_changed.emit(points)
 		get_parent().pellet_collected()
 		area.queue_free()
 	elif "Power" in area.name:
 		points += 10 
+		points_changed.emit(points)
 		get_parent().pellet_collected()
 		GhostStateManager.trigger_run_away()
 		area.queue_free()
